@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary-color:#FFF;
+    --background-color:#000;;
+}
+body{
+    font-family: "Darker Grotesque", sans-serif;
+    background:var(--background-color);
+    color: #FFF;
+}
+.container{
+    max-width: 1460px;
+    padding: 0px 30px;
+    margin: 0 auto;
+}
+.header_section{
+    height: 100px;
+
+}
+.header_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+ 
+   
+}
+a{
+    text-decoration: none;
+}
+.nav-item{
+    text-decoration: none;
+    color: #FFF;
+    padding-top: 32px;
+    height: fit-content;
+}
+.navbar{
+    display: flex;
+    gap: 70px;
+    height: 100%;
+      padding-left: 80px;
+}
+
+.head_logo svg {
+    max-width: 159px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.nav-item{
+text-align: center;
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px; 
+text-transform: uppercase;
+
+}
+.nav-item:hover{
+    color: #FFF;
+text-align: center;
+
+font-size: 22px;
+font-style: normal;
+font-weight: 900;
+line-height: 28px; 
+text-transform: uppercase;
+}
+
+.header_right{
+    max-width: 200px;
+    border: solid 1px white;
+    padding: 13px 78px 17px 24px;
+}
+.header_right a{
+color: #FFF;
+text-align: center;
+font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+white-space: nowrap;
+}
+
+.quote-btn{
+    max-width: 250px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     border: solid 1px white;
+    overflow: hidden;
+    margin-left: auto;
+}
+.quote-text{
+color: #FFF;
+text-align: center;
+font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+padding: 13px 0px 17px 24px;
+height: 100%;
+
+}
+
+.arrow-box{
+    width: 100%;
+    max-width: 70px;   
+    height: 100%;
+    background: #fff;
+    padding-left: 33px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+
+    clip-path: polygon(
+         28.57% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+.quote-btn:hover{
+    border:1px solid #FF8000;
+    border-right: none;
+}
+.quote-btn:hover .quote-text{
+    font-size: 22px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+
+}
+.quote-btn:hover .arrow-box{
+       background: #FF8000;
+         clip-path: polygon(
+         28.57% 0,
+        100% 0,
+        71.43% 100%,
+        0 100%
+    );
+}
+
+.nav-item:hover{
+    border-top: 1px solid  #FF8000;
+}
+
+
+
+/* top_page */
+.top_wrapper{
+
+    
+}
+
+
+
+/* .top_wrapper img{
+        width: 100%;
+    height: 100vh;
+        background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+} */
+
+
+
+
+
