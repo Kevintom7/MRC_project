@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-Bold.eot');
+    src: local('IvyOra Display Bold'), local('../fonts/IvyOraDisplay-Bold'),
+        url('../fonts/IvyOraDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-Bold.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-Light.eot');
+    src: local('IvyOra Display Light'), local('../fonts/IvyOraDisplay-Light'),
+        url('../fonts/IvyOraDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-Light.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-Light.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-BoldItalic.eot');
+    src: local('IvyOra Display Bold Italic'), local('../fonts/IvyOraDisplay-BoldItalic'),
+        url('../fonts/IvyOraDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-BoldItalic.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-BoldItalic.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-MediumItalic.eot');
+    src: local('IvyOra Display Medium Italic'), local('../fonts/IvyOraDisplay-MediumItalic'),
+        url('../fonts/IvyOraDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-MediumItalic.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-MediumItalic.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-LightItalic.eot');
+    src: local('IvyOra Display Light Italic'), local('../fonts/IvyOraDisplay-LightItalic'),
+        url('../fonts/IvyOraDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-LightItalic.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-LightItalic.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-Medium.eot');
+    src: local('IvyOra Display Medium'), local('../fonts/IvyOraDisplay-Medium'),
+        url('../fonts/IvyOraDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-Medium.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-Regular.eot');
+    src: local('IvyOra Display Regular'), local('../fonts/IvyOraDisplay-Regular'),
+        url('../fonts/IvyOraDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-Regular.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-Thin.eot');
+    src: local('IvyOra Display Thin'), local('../fonts/IvyOraDisplay-Thin'),
+        url('../fonts/IvyOraDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-Thin.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-Thin.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-RegularItalic.eot');
+    src: local('IvyOra Display Regular Italic'), local('../fonts/IvyOraDisplay-RegularItalic'),
+        url('../fonts/IvyOraDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-RegularItalic.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-RegularItalic.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../fonts/IvyOraDisplay-ThinItalic.eot');
+    src: local('IvyOra Display Thin Italic'), local('../fonts/IvyOraDisplay-ThinItalic'),
+        url('../fonts/IvyOraDisplay-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/IvyOraDisplay-ThinItalic.woff2') format('woff2'),
+        url('../fonts/IvyOraDisplay-ThinItalic.woff') format('woff'),
+        url('../fonts/IvyOraDisplay-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-Black.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-ExtraBold.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-Bold.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-Light.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-Medium.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-Regular.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Darker Grotesque';
+    src: url('../fonts/DarkerGrotesque-SemiBold.woff2') format('woff2'),
+        url('../fonts/DarkerGrotesque-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

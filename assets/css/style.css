@@ -1,3 +1,7 @@
+@import url("./stylesheet.css");
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Italianno&display=swap');
+
+
 *,
 *::before,
 *::after{
@@ -155,113 +159,381 @@ line-height: normal;
         0 100%
     );
 }
+.quote-btn:hover .arrow-box svg {
+   transform: translateX(-5px);
+
+}
+/* .quote-btn:hover {
+    clip-path: polygon(0 0, 100% 0, 71.43% 100%, 0 100%);
+} */
 
 .nav-item:hover{
     border-top: 1px solid  #FF8000;
 }
 
 
+/* ===== Hero Slider ===== */
 
-/* top_page */
 .top_section{
- position: relative;
-   height: 100vh;
-     width: 100%;
+    position: relative;
+    height: 100vh;
+    width: 100%;
 }
 
-
-
-html, body{
-    height: 100%;
-
-    scrollbar-width: none;
-}
-html::-webkit-scrollbar,body::-webkit-scrollbar{
-    display: none;
-}
-    
-.top_section img{
+.slide{
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100vh;
-    object-fit: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.5s;
 }
+.slide.active{
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+
 .top_content{
-     position: absolute;
-     top: 766px;
-     width: 100%;
-   
-     left: 0;
-   
+    position: absolute;
+    top: 766px;
+    width: 100%;
+    z-index: 2;
+    left: 0;
 }
 
 .top_content h1{
     color: #FFF;
-font-family: "IvyOra Display";
-font-size: 60px;
-font-style: normal;
-font-weight: 400;
-line-height: 120%; 
-letter-spacing: 1.8px;
-max-width: 790px;
+    font-family: "IvyOra Display";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 1.8px;
+    max-width: 790px;
 }
+
 .top_wrapper{
     display: flex;
     gap: 60px;
     flex-direction: column;
 }
+
 .top_heading{
     display: flex;
-   justify-content: space-between;
-   align-items: flex-end;
-   width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
 }
+
 .top_left{
     display: flex;
     flex-direction: column;
     gap: 20px;
     max-width: 790px;
-     width: 100%;
-     flex-shrink: 0; 
+    width: 100%;
+    flex-shrink: 0;
 }
-.top_left h6{
-font-size: 30px;
-font-style: normal;
-font-weight: 500;
-line-height: 140%;
 
+.top_left h6{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
 }
+
 .top_right{
- align-items: flex-end;
- display: flex;
- gap: 10px;
+    align-items: flex-end;
+    display: flex;
+    gap: 10px;
 }
+
 .top_squre{
-width: 15px;
-height: 15px;
-aspect-ratio: 1/1;
-background: rgba(255, 255, 255, 0.20);
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1/1;
+    background: rgba(255, 255, 255, 0.20);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
-.active{
+.top_squre.active{
     background-color: #FFF;
 }
+
 .top_button{
     display: flex;
     justify-content: space-between;
+    MAX-HEIGHT: 60PX;
+    ALIGN-ITEMS: center;
 }
-.main_section{
-    height: 100vh;
-}
-.top_button{
-    justify-content: space-between;
-}
+
 .supercar_btn{
-    margin: 0;
+   max-width: 205px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     border: solid 1px white;
+    overflow: hidden;
+  
+
+}
+.supercar_btn:hover{
+  border: 1px solid #FF8000;
+    border-right: none;
+}
+.supercar_btn:hover .supercar-text{
+    font-size: 18px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+
+}
+.supercar_btn:hover .supercar_arrow_box{
+       background: #FF8000;
+         clip-path: polygon(
+         34.48% 0, 
+        100% 0,
+        71.43% 100%,
+        0 100%
+    );
+}
+.supercar-text{
+    color: #FFF;
+
+font-family: "Darker Grotesque";
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+ white-space: nowrap;
+text-transform: uppercase;
+    padding: 8px 0px 11px 20PX;
+}
+.supercar_arrow_box{
+       width: 100%;
+    max-width: 58px;   
+    height: 100%;
+    background: #fff;
+   
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 28px;
+    /* clip-path: polygon(
+         28.57% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    ); */
+
+     clip-path: polygon(34.48% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.slide2_button{
+    padding-right: 60px;
+}
+
+
+/*slider-2*/
+.wedding_text{
+        padding: 8px 0px 11px 22PX
+}
+
+.airport_btn{
+    max-width: 233px;
+}
+.airport_text{
+    padding: 11px 0px 15px 14px;
+}
+.airport_arrow_box{
+  clip-path: polygon(29.31% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ===== Text entrance animation ===== */
+/* ===== Text entrance animation ===== */
+
+.hero_text_el{
+ 
+    transition: opacity 0.8s ease;
+}
+.hero_text_el.in{
+    opacity: 1;
+}
+.top_left h1.hero_text_el{
+    transition-delay: 0.1s;
+}
+.top_left h6.hero_text_el{
+    transition-delay: 0.3s;
+}
+.quote-btn.hero_text_el{
+    transition-delay: 0.5s;
 }
 
 
 
 
+.arrow_down_wrap{
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+/* bars sit fixed in place above the box, hidden until hover — no motion, no fade */
+.trail-bars{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.trail-bars .trail-bar{
+    opacity: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #FFF;    
+}
+
+.arrow_down_wrap:hover .trail-bar1{
+    opacity: .4;
+}
+.arrow_down_wrap:hover .trail-bar2{
+    opacity: .6;
+}
+.arrow_down_wrap:hover .trail-bar3{
+    opacity: .8;
+}
+/* only the box itself animates, sliding down 30px */
+.top_arrow_down{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: visible;
+    transition: transform 0.3s ease;
+    border: 1px solid white;
+   display: flex;
+   align-items: center;
+    justify-content: center
+}
+.arrow_down_wrap:hover .top_arrow_down{
+    transform: translateY(30px);
+    background-color: #FFF;
+}
+.top_arrow_down svg path{
+    transition: fill 0.3s ease;
+}
+.top_arrow_down:hover svg path{
+    fill: black;
+}
+
+
+
+/* mega menu */
+.has_megamenu{
+    position: static;
+}
+.megamenu{
+    position: fixed;
+    width: 100vw;
+    height: 70vh;
+    top: 100px;
+    left: 0;
+    background-color: #000;
+    z-index: 20;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+
+    overflow-y: auto;
+}
+.has_megamenu:hover .megamenu{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.hii{
+    color: #fff;
+}
+.has_megamenu:hover .header_section{
+    background-color: #000;
+}
+
+.header_section:has(.has_megamenu:hover){
+    background-color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.openmenu{
+    padding-top: 60px;
+
+}
+.open-menu-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.open-menu-heading h3{
+    color: #FFF;
+text-align: center;
+
+font-family: "IvyOra Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; 
+letter-spacing: 1.2px;
+
+}
+.open-menu-car-slider{
+  padding-top: 60px;
+  display: flex;
+  gap: 30px;
+}
+
+.mega-car-card{
+    display: flex;
+width: 348px;
+flex-direction: column;
+align-items: flex-start;
+gap: 20px;
+flex-shrink: 0;
+}
+
+.card-img{
+    width: 100%;
+height: 220px;
+aspect-ratio: 112/117;
+}
+
+.card-img img{
+    width: 100%;
+    height: 100%;      /* fill the container exactly */
+    object-fit: cover; /* crop to fill without distorting aspect ratio */
+    display: block; 
+}
+.card-content{
+    width: 100%;
+    text-align: center;
+}
+.card-content h4{
+text-align: center;
+
+font-family: "IvyOra Display";
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; 
+text-align: center;
+width: 100%;
+text-transform: none;
+}
