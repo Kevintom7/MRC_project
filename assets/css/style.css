@@ -142,6 +142,7 @@ height: 100%;
 .quote-btn:hover{
     border:1px solid #FF8000;
     border-right: none;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
 }
 .quote-btn:hover .quote-text{
     font-size: 22px;
@@ -236,7 +237,7 @@ line-height: normal;
     flex-direction: column;
     gap: 20px;
     max-width: 790px;
-    width: 100%;
+    /* width: 100%; */
     flex-shrink: 0;
 }
 
@@ -251,6 +252,12 @@ line-height: normal;
     align-items: flex-end;
     display: flex;
     gap: 10px;
+}
+.top_right1{
+    align-items: flex-end;
+    display: flex;
+    gap: 10px;
+    display: none;
 }
 
 .top_squre{
@@ -442,7 +449,8 @@ text-transform: uppercase;
 }
 .megamenu{
     position: fixed;
-    width: 100vw;
+    /* width: 100vw; */
+    width: 100%;
     height: 70vh;
     top: 100px;
     left: 0;
@@ -683,7 +691,7 @@ letter-spacing: 1.2px;
     align-items: center;
     clip-path: polygon(31.3% 0, 100% 0, 69.62% 100%, 0 100%);
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
 
 }
 .service-card:not(:first-child){
@@ -734,10 +742,153 @@ line-height: 140%;
 .service-card:not(:first-child){
     margin-left: -50px;
 }
-
+*/
 .service-card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px #FF8000;
+    transform: scale(1.25);
+  box-shadow:
+    0 0 20px rgba(255, 128, 0, 1),
+    0 0 40px rgba(255, 128, 0, 0.9),
+    0 0 80px rgba(255, 128, 0, 0.8);
     position: relative;
-    z-index: 10;
+    z-index: 1000;
+} 
+.service-card:hover svg path{
+    stroke: #FF8000;
+}
+
+.mobile-toggle-button{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1400px) {
+
+.navbar{
+    padding-left: 0;
+    gap: 35px;
+}
+.quote-btn{
+   margin-left: 0;
+}
+.header_wrapper{
+    gap: 10px;
+}
+.nav-item{
+  font-size: 21px;
+}
+/* .top_left{
+    max-width: none;
+   
 } */
+
+
+}
+@media (max-width: 1200px) {
+.navbar{
+    gap: 10px;
+}
+    .nav-item {
+        font-size: 19px;
+    }
+.quote-btn{
+    /* max-width: 240px; */
+    max-width: 217px;
+}
+.quote-text{
+    padding: 13px 0px 17px 17px;
+}
+.arrow-box{
+    padding-left: 0px;
+    justify-content: center;
+    max-width: 50px;
+}
+.quote-text{
+    font-size: 21px;
+}
+
+.nav-item:hover{
+    font-size: 19px;
+}
+
+.service-card{
+    flex-shrink: 1;
+}
+
+.service-car-slide{
+    margin-left: 0;
+}
+}
+
+@media (max-width:1024px){
+
+.navbar,.quote-btn{
+    display: none;
+}
+.mobile-toggle-button{
+    display: block;
+}
+.slide{
+    height: 80vh;
+} 
+}
+
+@media (max-width:767px){
+.top_arrow_down {
+ display: none;
+}
+.top_right{
+    display: none;
+}
+.top_right1{
+    display: flex;
+}
+.mobile-slider{
+    display: flex;
+}
+.top_content h1{
+    font-size: 50px;
+}
+.slide{
+    height: 60vh;
+} 
+}
+
+@media (max-width:567px){
+  .top_left h1{
+    color: #FFF;
+
+font-family: "IvyOra Display";
+font-size: 50px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 60px */
+letter-spacing: 1.5px;
+  }  
+  .header_wrapper{
+    height: 72px;
+  }
+  .container{
+    padding: 0px 20px 0px 20px;
+  }
+
+  .top_left h6{
+    font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+  }
+
+  .top_wrapper{
+    gap: 40px;
+  }
+}
