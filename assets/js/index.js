@@ -105,9 +105,58 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+mobileToggle.addEventListener('click', () => {
+    const isOpen = mobileNavOverlay.classList.toggle('active');
+    mobileToggle.classList.toggle('active', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+});
+
+
+document.querySelectorAll('.mobile-nav-accordion').forEach(item => {
+    item.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        document.querySelectorAll('.mobile-nav-accordion.active').forEach(other => {
+            if (other !== item) other.classList.remove('active');
+        });
+
+        item.classList.toggle('active', !isOpen);
+    });
+});
 
 
 
 
+document.querySelectorAll('.mobile-slider-supercar').forEach(slider => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
 
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5; // drag speed multiplier
+        slider.scrollLeft = scrollLeft - walk;
+    });
+});
