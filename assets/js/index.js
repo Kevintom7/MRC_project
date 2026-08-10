@@ -160,3 +160,75 @@ document.querySelectorAll('.mobile-slider-supercar').forEach(slider => {
         slider.scrollLeft = scrollLeft - walk;
     });
 });
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const filterButtons = document.querySelectorAll('.filter_category');
+  const cards = document.querySelectorAll('.supercar_card');
+
+  filterButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const filter = btn.getAttribute('data-filter');
+
+      // toggle active state on buttons
+      filterButtons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      // show/hide cards
+      cards.forEach(function (card) {
+        const categories = (card.getAttribute('data-category') || '').split(' ');
+        const matches = filter === 'all' || categories.includes(filter);
+        card.classList.toggle('is-hidden', !matches);
+      });
+    });
+  });
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle   = document.querySelector('.filter_accordion_toggle');
+  const list     = document.querySelector('.filter_accordion_list');
+  const label    = document.querySelector('.filter_accordion_label');
+  const items    = document.querySelectorAll('.filter_accordion_item');
+  const cards    = document.querySelectorAll('.supercar_card');
+
+  // open/close the dropdown
+  toggle.addEventListener('click', function () {
+    toggle.classList.toggle('open');
+    list.classList.toggle('open');
+  });
+
+  // select a filter
+  items.forEach(function (item) {
+    item.addEventListener('click', function () {
+      const filter = item.getAttribute('data-filter');
+
+      items.forEach(function (i) { i.classList.remove('active'); });
+      item.classList.add('active');
+
+      label.textContent = 'FILTER: ' + item.textContent;
+
+      cards.forEach(function (card) {
+        const categories = (card.getAttribute('data-category') || '').split(' ');
+        const matches = filter === 'all' || categories.includes(filter);
+        card.classList.toggle('is-hidden', !matches);
+      });
+
+      // close after selecting
+      toggle.classList.remove('open');
+      list.classList.remove('open');
+    });
+  });
+});

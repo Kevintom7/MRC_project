@@ -302,6 +302,8 @@ line-height: normal;
 .supercar_btn:hover{
   border: 1px solid #FF8000;
     border-right: none;
+
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
 }
 .supercar_btn:hover .supercar-text{
     font-size: 18px;
@@ -966,14 +968,14 @@ padding: 150px 0px;
 }
 .premimum_content{
       display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-columns: 1fr 1fr; 
   gap: 30px;  
 }
 .premimum_left h3{
     font-size: 40px;
 font-style: normal;
 font-weight: 500;
-line-height: 120%; /* 48px */
+line-height: 120%; 
 letter-spacing: 1.2px;
 }
 .premimum_right{
@@ -1038,8 +1040,1043 @@ line-height: 24px;
 }
 
 
+.premimum_wrapper{
+padding: 150px 0px;
+}
+.premimum_content{
+      display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 30px;  
+}
+.premimum_left h3{
+    font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 48px */
+letter-spacing: 1.2px;
+}
+.premimum_right{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.premimum_right_content h4{
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: 28px;
+}
+.premimum_right_content p{
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.premimum_right_content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.premimum_right_content_head h3{
+color: #FF8000;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px;
+}
+.premimum_right_content_button{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.premimum_right_content_button svg{
+    display: none;
+     transform: translateX(-10px);
+    transition: transform 0.5s ease;
+}
+.premimum_right_content_button:hover svg{
+    display: block;
+     transform: translateX(0)
+    
+}
+
+/* .car_expander{
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      height: 880px; 
+}
+.car_expander-img{
+    background-color: #FF8000;
+    transition: width .5s;
+}
+.car_expander-img img{
+    width: 100%;
+    height: 100%;
+        object-fit: cover;
+    display: block;
+}
+.car_expander-img:hover{
+    width: 1280px;
+    cursor: pointer;
+} */
+
+.car_expander {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 880px;
+    transition: grid-template-columns 0.6s ease;
+    overflow: hidden;
+}
+
+.car_expander:has(.car_expander-img:nth-child(1):hover) {
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+}
+
+.car_expander:has(.car_expander-img:nth-child(2):hover) {
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+
+.car_expander:has(.car_expander-img:nth-child(3):hover) {
+    grid-template-columns: 0.5fr 0.5fr 2fr;
+}
+
+.car_expander-img {
+    overflow: hidden;
+    position: relative;
+}
+
+.car_expander-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.car_expander-img:hover img {
+    transform: scale(1.05);
+}
+.car_expander_content{
+   position: absolute;
+    inset: 0;              /* top:0; right:0; bottom:0; left:0 */
+    padding: 60px;
+    display: flex;
+   
+    color: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between;
+}
+.expander_overlay-svg{
+   position: relative;
+  /* height: 50px;  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 165px;
+  gap: 5px;
+}
+.expander_overlay-svg svg{
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  height: 45px;
+  width: auto;
+  transition: opacity 0.4s ease;
+}
+
+.logo-default{
+  opacity: 1;
+}
+
+.logo-hover{
+  opacity: 0;
+}
+
+/* trigger from the card, not the svg wrapper itself */
+.car_expander-img:nth-child(1):hover .logo-default{
+  opacity: 0;
+}
+.logo-hover{
+    display: none;
+}
+.car_expander-img:nth-child(1):hover .logo-hover{
+  opacity: 1;
+  display: flex;
+}
+
+.car_expander_bottom h6{
+font-family: "Darker Grotesque";
+font-size: 30px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+}
+.expander-car-name{
+    display: flex;
+    gap: 20px;
+}
+.expander-car-name{
+    font-family: "IvyOra Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 48px */
+letter-spacing: 1.2px;
+display: flex;
+gap: 20px;
+justify-content: space-between;
+align-items: flex-end;
+}
+.car_expander_bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+h6,h3{
+    margin: 0;
+}
 
 
+
+
+
+ .cta-arrow-btn{
+    display: inline-flex;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    gap: 5px;
+  }
+
+  .cta-arrow-btn .cta-stripe{
+    width: 8px;
+    height: 100%;
+    margin-right: 1px;
+    opacity: 0;
+    transform:skew(-18deg) ;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .cta-arrow-btn .cta-stripe-1{
+     background: rgba(255,255,255,0.25);
+      transition-delay: 0s;
+     }
+  .cta-arrow-btn .cta-stripe-2{
+    background: rgba(255,255,255,0.5);
+      transition-delay: 0.06s;
+     }
+  .cta-arrow-btn .cta-stripe-3{ background: rgba(255,255,255,0.85);
+     transition-delay: 0.12s;
+     }
+
+  .cta-arrow-btn:hover .cta-stripe{
+    opacity: 1;
+   
+  }
+
+  .cta-arrow-btn .cta-arrow-box{
+    width: 76px;
+    height: 100%;
+    background: #FFF;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+  .cta-arrow-btn .cta-arrow-box svg path{
+    transition: fill 0.3s ease;
+  }
+
+.icon-set-expander{
+    display: none;
+    transform: translateX(30px);
+}
+.icon-squre{
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.icon-squre-img{
+    justify-content: center;
+    display: flex;
+    width: 80%;
+    background-color:rgba(0, 0, 0, 0.20) ;
+    border: 1px solid white;
+    height: 60px;
+    transform: skew(-15deg);
+    align-items: center;
+}
+.icon-squre-content{
+   align-items:flex-start;
+   width: 100%;
+}
+.icon-squre-content h4{
+    font-family: "Darker Grotesque";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px;
+text-align: left;
+}
+
+.expander-car-name1 h3{
+    color: #FFF;
+
+font-family: "IvyOra Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 48px */
+letter-spacing: 1.2px;
+}
+.car_expander-img:nth-child(1):hover .icon-set-expander{
+  display: flex;
+  align-items: center;
+}
+.car_expander-img:nth-child(2):hover .icon-set-expander{
+  display: flex;
+  align-items: center;
+}
+.car_expander-img:nth-child(3):hover .icon-set-expander{
+  display: flex;
+  align-items: center;
+}
+.icon-set-expander:not(:first-child) {
+    margin-left: -10px;
+}
+
+.expander_overlay-svg1{
+    
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car_expander_bottom{
+  opacity: 0;
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car-line{
+ display: flex;
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .non-hover-text{
+ display: flex;
+}
+.car-line{
+width: 1px;
+height: 484px;
+background-color: #FFF;
+display: none;
+}
+.non-hover-text{
+ display: none;
+  width: 24px;      /* matches the rotated (visual) width, i.e. original text height */
+  height: 140px;     /* matches the rotated (visual) height, i.e. original text width */
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-90deg);
+}
+.non-hover-text h6{
+font-family: "Darker Grotesque";
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+
+white-space: nowrap;
+}
+.car_expander_bottom h6{
+    display: none;
+}
+
+
+
+.supercar_wrapper{
+    padding-top: 100px;
+    text-align: center;
+}
+
+.supercar_wrapper h6{
+    color: #AEAEAE;
+text-align: center;
+/* H7 */
+font-family: "Darker Grotesque";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%; 
+}
+.supercar_wrapper h2{
+    font-family: "IvyOra Display";
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 72px */
+letter-spacing: 1.8px;
+}
+/* .filter_class{
+    padding: 60px 0px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+} */
+ .filter_class{
+    padding: 60px 0px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.filter_class::-webkit-scrollbar{
+    display: none;
+}
+.filter_category{
+    padding: 20px;
+}
+.filter_category h4{
+    text-align: center;
+font-family: "Darker Grotesque";
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 140%;
+white-space: nowrap;
+}
+
+
+.category-2{
+    border: 1px solid #434343;
+  
+}
+
+/* .supercar_card{
+    display: flex;
+    width: 100%;
+    max-width: 685px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+    border-bottom: 2px solid white;
+} */
+ .supercar_card{
+    width: 100%;
+    max-width: none;   /* let the grid track control the width, not a fixed px cap */
+    flex-shrink: 0;
+}
+ .supercard-img{
+    width: 100%;
+    /* height: 550px; */
+    height: clamp(350px, 35vw, 550px);
+    aspect-ratio: 101/128;
+    position: relative;
+    overflow: hidden;
+} 
+
+
+.supercard-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.supercard-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.supercard-content h6{
+    font-family: "Darker Grotesque";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.supercard-head h3{
+    font-family: "IvyOra Display";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 48px */
+    letter-spacing: 1.2px;
+}
+
+
+ .supercard-head{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.supercard-content-title h6{
+    text-align: left;
+}
+
+/* .supercar_card_name{
+    width: 493px;
+} */
+ .supercar_card_name{
+    width: 100%;
+    max-width: 493px;
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.supercar_card_name h3{
+    text-align: left;
+}
+
+.supercard_view_car{
+    align-items: flex-end;
+    display: flex;
+}
+
+.supercard_view_car h6{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    color: #FF8000;
+}
+
+.supercard_view_btn{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.supercard_view_btn svg{
+    display: none;
+    transform: translateX(-10px);
+    transition: transform 0.5s ease;
+}
+
+.supercar_card:hover svg{
+    display: block;
+    transform: translateX(0);
+}
+
+/* image hover reveal — same diagonal stripe pattern as mega-car-card */
+.supercar_card:hover .card-ret-left1{
+    transform: translateX(-70%);
+    opacity: 1;
+}
+
+.supercar_card:hover .card-ret-right1{
+    transform: translateX(70%);
+    opacity: 1;
+}
+
+.supercar_card:hover .card-arrow{
+    opacity: 1;
+}
+
+.supercar_card:hover .supercar_card_name{
+    color: #FF8000;
+}
+
+.card-ret-left1{
+    width: 100%;
+    max-width: 431px;
+    height: 100%;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    clip-path: polygon(0 0, 100% 0, 69.62% 100%, 0 100%);
+    pointer-events: none; 
+     transition: transform 0.5s ease, opacity 0.5s ease;
+     opacity: 0;
+}
+
+.card-ret-right1 {
+    width: 100%;
+    width: 434px;
+    height: 100%;
+    background: #080505;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    clip-path: polygon(31.3% 0, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.filter_section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 60px;
+}
+
+
+.supercar_card{
+    border-bottom: 2px solid white;
+}
+
+.card-supercard1{
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    clip-path: polygon(35.3% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0;
+    padding-left: 33px;
+    transition: transform 0.8s ease;
+}
+
+.cta-fade-btn{
+    display: inline-flex;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    gap: 5px;
+}
+
+.cta-fade-stripe{
+    width: 8px;
+    height: 100%;
+    margin-right: 1px;
+    opacity: 0;
+    transform: skew(-18deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cta-fade-stripe-1{
+    background: rgba(255,255,255,0.25);
+    transition-delay: 0s;
+}
+
+.cta-fade-stripe-2{
+    background: rgba(255,255,255,0.5);
+    transition-delay: 0.06s;
+}
+
+.cta-fade-stripe-3{
+    background: rgba(255,255,255,0.85);
+    transition-delay: 0.12s;
+}
+
+.supercar_card:hover .cta-fade-stripe{
+    opacity: 1;
+}
+
+.cta-fade-box{
+    width: 70px;
+    height: 100%;
+    background: #FFF;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 16px;
+    transform: translateX(-40px);
+    transition: background-color 0.3s ease, transform 0.4s ease;
+}
+
+/* hovering the button itself slides the box back to reveal the stripes */
+.supercar_card :hover .cta-fade-box{
+    transform: translateX(0);
+}
+
+.cta-fade-box svg path{
+    transition: fill 0.3s ease;
+}
+
+.cta-fade-btn--overlay{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 102;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.supercar_card:hover .cta-fade-btn--overlay{
+    opacity: 1;
+}
+
+.supercard-img-default,
+.supercard-img-hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.supercard-img-default{
+    opacity: 1;
+}
+
+.supercard-img-hover{
+    opacity: 0;
+}
+
+.supercar_card:hover .supercard-img-default{
+    opacity: 0;
+}
+
+.supercar_card:hover .supercard-img-hover{
+    opacity: 1;
+}
+
+.cta-fade-box svg{
+    width: 20px;
+    transition: width 0.3s ease;
+}
+
+.cta-fade-btn:hover .cta-fade-box svg{
+    width: 27px;
+}
+.cta-fade-icon{
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.cta-fade-icon-default{
+    opacity: 1;
+}
+
+.cta-fade-icon-hover{
+    opacity: 0;
+}
+
+.cta-fade-btn:hover .cta-fade-icon-default{
+    opacity: 0;
+}
+
+.cta-fade-btn:hover .cta-fade-icon-hover{
+    opacity: 1;
+}
+.filter_category{
+    cursor: pointer;
+}
+
+.filter_category.active{
+    background-color: #FF8000;
+    border-color: #FF8000;
+}
+
+.supercar_card.is-hidden{
+    display: none;
+}
+.filter_accordion{
+    display: none;
+}
+.desktop-break {
+    display: block;
+}
+
+/*service_section*/
+.service_section{
+    padding-top: 120px;
+    border-top: 2px solid
+     white;
+
+}
+.supercar_section{
+    padding-bottom: 120px;
+}
+.service-content{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 30px;
+}
+.service-content-heading h6{
+font-family: "Darker Grotesque";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+color: #AEAEAE;
+text-align: center;
+}
+.service-content-heading h2{
+    font-family: "IvyOra Display";
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 72px */
+letter-spacing: 1.8px;
+}
+.service-content-body{
+    max-width: 930px;
+   
+}
+.service-content-body p{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+ text-align: center;
+}
+.service_items{
+    padding: 100px 0px;
+    display: flex;
+
+}
+.service-main-card{
+    max-width: 370px;
+    width: 100%;
+    height: 280px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: skew(-19deg);
+}
+.service-main-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+        align-items: center;
+         transform: skew(19deg);
+        
+}
+.service-main-content h6{
+    font-family: "Darker Grotesque";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%; 
+}
+.service-main-card {
+    transition: filter 0.3s ease, background-color 0.3s ease;
+}
+
+.service-main-card:hover {
+     transform: skew(-19deg) scale(1.05);
+    background: var(--MRC-Black, #000);
+    filter: drop-shadow(0 0 30px rgba(255, 128, 0, 0.40));
+}
+.service-main-card:hover .service-main-content svg path{
+    stroke: #FF8000;
+}
+
+/*business_section*/
+.business_section{
+    background: #161616;
+    padding: 150px 0px;
+}
+.business_content{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.business_content_top{
+    display: flex;
+    gap: 100px;
+}
+.business_left{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 615px;
+}
+.business_heading h5{
+    font-family: Italianno;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%;
+}
+.business_heading h2{
+    color: #FFF;
+/* H2 */
+font-family: "IvyOra Display";
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 72px */
+letter-spacing: 1.8px;
+}
+.business_content p{
+font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.business_content_down{
+    display: flex;
+     gap: 20px;
+}
+
+.quotes_section{
+    padding-top: 100px;
+    background-color: #000;
+}
+.quotes_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:30px;
+    padding-bottom: 100px;
+}
+.quotes_left{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.quotes_left h3{
+    font-family: "IvyOra Display";
+font-size: 40px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 48px */
+letter-spacing: 1.2px;
+}
+.quotes_left p{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.quotes_right{
+     display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 50px;
+    padding-top: 50px;
+}
+.quotes_right p{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.quotes_right_svg{
+    display: flex;
+    justify-content: end;
+}
+.business_down_img1{
+    width: 100%;
+}
+.business_down_img1 img{
+    width: 100%;
+} 
+.business_down_img2{
+    width: 100%;
+}
+.business_down_img2 img{
+    width: 100%;
+} 
+.business_right{
+    width: 100%;
+    max-width: 685px;
+}
+.business_right img{
+    width: 100%;
+}  
+.banner-car {
+    width: 100%;
+}
+
+.banner-car img {
+    width: 100%;
+  
+    height: auto;
+    display: block;
+}
+.progress_section{
+    padding: 150px 0px;
+
+background: #161616;
+}
+/*progress-content*/
+.progress-content{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+}
+.progress-content h6{
+    color: #AEAEAE;
+text-align: center;
+/* H7 */
+font-family: "Darker Grotesque";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+}
+.progress-content h2{
+    font-family: "IvyOra Display";
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 72px */
+letter-spacing: 1.8px;
+text-align: center;
+}
+.progress-slider{
+    display: flex;
+    align-items: center;
+    height: 250px;
+}
+.progress-card{
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid white;
+    align-items: center;
+    width: 313px;
+    
+    height: 100%;
+}
+.progress-card h6{
+    font-family: "Darker Grotesque";
+font-size: 30px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+
+}
+.progress_body{
+    max-width: 1000px;
+    text-align: center;
+}
+.progress_body p{
+font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.progress-card:hover{
+border: 1px solid #FF8000;
+}
+.progress-card:hover svg path{
+    stroke: #FF8000;
+}
 @media (max-width: 1400px) {
 
 .navbar{
@@ -1112,6 +2149,43 @@ line-height: 24px;
 .header_section{
     background-color: #000;
 }
+
+/*premimum section*/
+.premimum_content{
+    grid-template-columns: 1fr;
+}
+.premimum_wrapper{
+    padding-top: 50px;
+  }
+/*.car_expander */
+.car_expander{
+    grid-template-columns: 1fr 1fr;
+}
+.car_expander-img-hide{
+    display: none;
+}
+.car_expander:has(.car_expander-img:nth-child(1):hover) {
+    grid-template-columns: 3fr 1fr;
+}
+.car_expander:has(.car_expander-img:nth-child(3):hover) {
+    grid-template-columns: .5fr 2fr;
+}
+.car_expander_content{
+    padding: 30px;
+    padding-left: 14px;
+}
+.car_expander-img:nth-child(3):hover .icon-set-expander
+ {
+    display: none;
+ }
+ .car_expander-img:nth-child(1):hover .icon-set-expander
+ {
+    display: none;
+ }
+  .desktop-break {
+        display: none;
+    }
+ 
 }
 
 @media (max-width:767px){
@@ -1143,6 +2217,10 @@ line-height: 24px;
   
   .top_content{
       top: 648px;
+  }
+
+  .premimum_wrapper{
+    padding-top: 70px;
   }
 }
 
@@ -1218,8 +2296,119 @@ line-height: 120%;
   .mobile-nav-overlay.active .container{
     padding-bottom: 20px;
   }
+
+  .premimum_wrapper{
+    padding: 0px;
+  }
 }
 
 
 
 
+/* Accordion hidden on desktop */
+.filter_accordion{
+    display: none;
+}
+@media (max-width: 1024px){
+    .filter_class{
+        display: none;
+    }
+
+    .filter_accordion{
+        display: block;
+        padding: 40px 0 0;
+        position: relative;
+    }
+
+    .filter_accordion_toggle{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FF8000;
+        padding: 18px 20px;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
+
+    .filter_accordion_toggle.open{
+        background-color: #1A1A1A;
+    }
+
+    .filter_accordion_label{
+        font-family: "Darker Grotesque";
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #000;
+        text-align: left;
+    }
+
+    .filter_accordion_toggle.open .filter_accordion_label{
+        color: #FFF;
+    }
+
+    .filter_accordion_icon{
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-close{
+        display: none;
+    }
+
+    .filter_accordion_toggle.open .icon-plus{
+        display: none;
+    }
+
+    .filter_accordion_toggle.open .icon-close{
+        display: block;
+    }
+
+    .filter_accordion_list{
+        position: static;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        transform-origin: top;
+        max-height: 0;
+        overflow: hidden;
+        background-color: #1A1A1A;
+        transition: max-height 0.35s ease;
+    }
+
+    .filter_accordion_list.open{
+        max-height: 500px;
+    }
+
+    .filter_accordion_item{
+        padding: 16px 20px;
+        font-family: "Darker Grotesque";
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #FFF;
+        text-align: left;
+        cursor: pointer;
+        border-top: 1px solid #333;
+    }
+
+    .filter_accordion_item:hover,
+    .filter_accordion_item.active{
+        background-color: #FF8000;
+        color: white;
+    }
+
+    .filter_section{
+        padding-top: 50px;
+          grid-template-columns: 1fr;
+    }
+.supercard-head {
+    justify-content: space-between;
+}
+}
