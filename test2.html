@@ -1,144 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CTA Arrow Button — Component</title>
-<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-
-  /* ============================================================
-     CTA ARROW BUTTON — standalone reusable component
-     Drop the markup + CSS below into any page.
-     Idle:  a single diagonal-cut white box with a right arrow.
-     Hover: three diagonal stripes trail out to the left,
-            the box turns orange, the arrow flips fill to white.
-     ============================================================ */
-
-  .cta-arrow-btn{
-    display: inline-flex;
-    align-items: center;
-    height: 60px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .cta-arrow-btn .cta-stripe{
-    width: 22px;
-    height: 100%;
-    margin-right: 1px;
-    clip-path: polygon(80% 0, 100% 0, 20% 100%, 0 100%);
-    opacity: 0;
-    transform: translateX(16px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .cta-arrow-btn .cta-stripe-1{ background: rgba(255,255,255,0.25); transition-delay: 0s; }
-  .cta-arrow-btn .cta-stripe-2{ background: rgba(255,255,255,0.5);  transition-delay: 0.06s; }
-  .cta-arrow-btn .cta-stripe-3{ background: rgba(255,255,255,0.85); transition-delay: 0.12s; }
-
-  .cta-arrow-btn:hover .cta-stripe{
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .cta-arrow-btn .cta-arrow-box{
-    width: 76px;
-    height: 100%;
-    background: #FFF;
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 16px;
-    transition: background-color 0.3s ease;
-  }
-
-  .cta-arrow-btn:hover .cta-arrow-box{
-    background: #FF8000;
-  }
-
-  .cta-arrow-btn .cta-arrow-box svg path{
-    transition: fill 0.3s ease;
-  }
-
-  .cta-arrow-btn:hover .cta-arrow-box svg path{
-    fill: #FFF;
-  }
-
-  /* size variant: small */
-  .cta-arrow-btn.cta-arrow-btn--small{
-    height: 46px;
-  }
-  .cta-arrow-btn.cta-arrow-btn--small .cta-arrow-box{
-    width: 56px;
-    padding-left: 12px;
-  }
-  .cta-arrow-btn.cta-arrow-btn--small .cta-stripe{
-    width: 16px;
-    margin-right: 1px;
-  }
-
-  /* ============================================================
-     Demo page chrome only — not part of the component
-     ============================================================ */
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  body{
-    background:#000;
-    color:#fff;
-    font-family:"Darker Grotesque", sans-serif;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:60px;
-  }
-  .demo-row{
-    display:flex;
-    align-items:center;
-    gap:50px;
-  }
-  .demo-label{
-    font-size:18px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:rgba(255,255,255,0.5);
-    margin-bottom:14px;
-  }
-  .demo-block{ text-align:center; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body>
+<body style="background-color: black;">
+ <style>
 
-  <div class="demo-row">
-    <div class="demo-block">
-      <a href="#" class="cta-arrow-btn">
-        <div class="cta-stripe cta-stripe-1"></div>
-        <div class="cta-stripe cta-stripe-2"></div>
-        <div class="cta-stripe cta-stripe-3"></div>
-        <div class="cta-arrow-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 15 12" fill="none">
-            <path d="M8.69629 0.21967C8.98918 -0.0732233 9.46492 -0.0732233 9.75781 0.21967L14.5303 4.99311C14.8232 5.286 14.8232 5.76076 14.5303 6.05365L9.75781 10.8271C9.46492 11.12 8.98918 11.12 8.69629 10.8271C8.4034 10.5342 8.4034 10.0585 8.69629 9.76557L12.1895 6.27338H0V4.77338H12.1895L8.69629 1.28119C8.4034 0.9883 8.4034 0.512563 8.69629 0.21967Z" fill="black"/>
-          </svg>
-        </div>
-      </a>
-    </div>
+  
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+/* form heading*/
+.form_section .container{
+    padding-left: 0px;
+}
+.form_headng{
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+.form_headng h6{
+    font-family: "Darker Grotesque";
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 140%;
+text-align: center;
+}
+.form_headng h2{
+    font-family: "IvyOra Display";
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 72px */
+letter-spacing: 1.8px;
+text-align: center;
+}
+.form-content{
+  
+    gap: 150px;
+    display: flex;
+     height: 1400px;
+      margin: 0 auto;
+}
+.form-img{
+  max-width: 826px;
+  height: 1260px;
+}
+.form-img img{
+  width: 100%;
+}
+ </style> 
 
-    <div class="demo-block">
-      <div class="demo-label">Small variant</div>
-      <a href="#" class="cta-arrow-btn cta-arrow-btn--small">
-        <div class="cta-stripe cta-stripe-1"></div>
-        <div class="cta-stripe cta-stripe-2"></div>
-        <div class="cta-stripe cta-stripe-3"></div>
-        <div class="cta-arrow-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 15 12" fill="none">
-            <path d="M8.69629 0.21967C8.98918 -0.0732233 9.46492 -0.0732233 9.75781 0.21967L14.5303 4.99311C14.8232 5.286 14.8232 5.76076 14.5303 6.05365L9.75781 10.8271C9.46492 11.12 8.98918 11.12 8.69629 10.8271C8.4034 10.5342 8.4034 10.0585 8.69629 9.76557L12.1895 6.27338H0V4.77338H12.1895L8.69629 1.28119C8.4034 0.9883 8.4034 0.512563 8.69629 0.21967Z" fill="black"/>
-          </svg>
-        </div>
-      </a>
-    </div>
-  </div>
+ <section class="form_section">
+          <div class="container1">
+            <div class="form_wrapper">
+                  <div class="form_headng">
+                     <h6>ENQUIRE NOW</h6>
+                     <h2>Drive Your Dream</h2>
+                  </div>
+                  <div class="form-content">
+                    <div class="form-img">
+                        <img src="./assets/images/Form-img-Mclaren.png" alt="">
+                    </div>
+                 
+                 
+                  </div>
+            </div>
+          </div>
+    </section> 
 
-  <p style="color:rgba(255,255,255,0.4); font-size:18px;">Hover either button to see the stripe reveal ↑</p>
-
+  </section>
 </body>
 </html>

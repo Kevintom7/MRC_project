@@ -3352,7 +3352,8 @@
                     <div class="form-img">
                         <img src="./assets/images/Form-img-Mclaren.png" alt="">
                     </div>
-                    <div class="form-data">
+                   
+                           <div class="form-data">
                           <div class="from-title">
                                 <h4>Your luxury car hire is only a few clicks away</h4>
                                 <p>Fill in the form and we’ll be in touch with booking information.</p>
@@ -3363,25 +3364,34 @@
 
                                 <div class="select-wrapper">
                                     <select id="category">
+                                          <option>Select drive</option>
                                         <option>Wedding Hire</option>
                                         <option>Luxury Hire</option>
                                         <option>Event Hire</option>
                                     </select>
-                                    <div>
-
-                                    </div>
+                                    <span class="field-icon">
+                                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.21671 6.46484C7.41197 6.66011 7.41197 6.97661 7.21671 7.17187L4.03507 10.3535C3.83981 10.5488 3.5233 10.5488 3.32804 10.3535L0.1464 7.17187C-0.0488623 6.97661 -0.0488623 6.66011 0.1464 6.46484C0.341662 6.26958 0.658169 6.26958 0.853431 6.46484L3.18156 8.79297L3.18156 -1.82784e-07L4.18156 -1.39072e-07L4.18156 8.79297L6.50968 6.46484C6.70494 6.26958 7.02145 6.26958 7.21671 6.46484Z" fill="white"/>
+                                        </svg>
+                                    </span>
                                 </div>
                             </div>
 
                              <div class="form-group">
-                                <label for="category">Select drive</label>
+                                <label for="drive-type">Select drive</label>
 
                                 <div class="select-wrapper">
-                                    <select id="category">
+                                    <select id="drive-type">
+                                        <option>Select drive</option>
                                         <option>Self Drive</option>
                                         <option>Hire Driver</option>
                                         <option>Rent driver</option>
                                     </select>
+                                    <span class="field-icon">
+                                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.21671 6.46484C7.41197 6.66011 7.41197 6.97661 7.21671 7.17187L4.03507 10.3535C3.83981 10.5488 3.5233 10.5488 3.32804 10.3535L0.1464 7.17187C-0.0488623 6.97661 -0.0488623 6.66011 0.1464 6.46484C0.341662 6.26958 0.658169 6.26958 0.853431 6.46484L3.18156 8.79297L3.18156 -1.82784e-07L4.18156 -1.39072e-07L4.18156 8.79297L6.50968 6.46484C6.70494 6.26958 7.02145 6.26958 7.21671 6.46484Z" fill="white"/>
+                                        </svg>
+                                    </span>
                                 </div>
                             </div>
                            
@@ -3390,10 +3400,16 @@
 
             <div class="select-wrapper">
                 <select id="vehicle">
+                    <option>Select Vehicle</option>
                     <option>McLaren GT</option>
                     <option>Ferrari</option>
                     <option>Lamborghini</option>
                 </select>
+                <span class="field-icon">
+                    <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.21671 6.46484C7.41197 6.66011 7.41197 6.97661 7.21671 7.17187L4.03507 10.3535C3.83981 10.5488 3.5233 10.5488 3.32804 10.3535L0.1464 7.17187C-0.0488623 6.97661 -0.0488623 6.66011 0.1464 6.46484C0.341662 6.26958 0.658169 6.26958 0.853431 6.46484L3.18156 8.79297L3.18156 -1.82784e-07L4.18156 -1.39072e-07L4.18156 8.79297L6.50968 6.46484C6.70494 6.26958 7.02145 6.26958 7.21671 6.46484Z" fill="white"/>
+                    </svg>
+                </span>
             </div>
         </div>
 
@@ -3403,7 +3419,7 @@
             <input
                 type="text"
                 id="location"
-                value="West Bridgeford, Nottingham"
+                
             >
         </div>
 
@@ -3412,12 +3428,26 @@
 
             <div class="form-group">
                 <label for="pickup-date">Pick Up Date</label>
-                <input type="date" id="pickup-date">
+                <div class="select-wrapper">
+                    <input type="date" id="pickup-date">
+                    <span class="field-icon">
+                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.21671 6.46484C7.41197 6.66011 7.41197 6.97661 7.21671 7.17187L4.03507 10.3535C3.83981 10.5488 3.5233 10.5488 3.32804 10.3535L0.1464 7.17187C-0.0488623 6.97661 -0.0488623 6.66011 0.1464 6.46484C0.341662 6.26958 0.658169 6.26958 0.853431 6.46484L3.18156 8.79297L3.18156 -1.82784e-07L4.18156 -1.39072e-07L4.18156 8.79297L6.50968 6.46484C6.70494 6.26958 7.02145 6.26958 7.21671 6.46484Z" fill="white"/>
+                        </svg>
+                    </span>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="pickup-time">Pick Up Time</label>
-                <input type="time" id="pickup-time">
+                <div class="select-wrapper">
+                    <input type="time" id="pickup-time">
+                    <span class="field-icon">
+                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.21671 6.46484C7.41197 6.66011 7.41197 6.97661 7.21671 7.17187L4.03507 10.3535C3.83981 10.5488 3.5233 10.5488 3.32804 10.3535L0.1464 7.17187C-0.0488623 6.97661 -0.0488623 6.66011 0.1464 6.46484C0.341662 6.26958 0.658169 6.26958 0.853431 6.46484L3.18156 8.79297L3.18156 -1.82784e-07L4.18156 -1.39072e-07L4.18156 8.79297L6.50968 6.46484C6.70494 6.26958 7.02145 6.26958 7.21671 6.46484Z" fill="white"/>
+                        </svg>
+                    </span>
+                </div>
             </div>
 
         </div>
@@ -3428,45 +3458,73 @@
             <input
                 type="text"
                 id="name"
-                placeholder="John Smith-Westerman"
+              
             >
         </div>
-                            <div class="form-group">
-                                <label for="category">Select drive</label>
 
-                                <div class="select-wrapper">
-                                    <select id="category">
-                                        <option>Self Drive</option>
-                                        <option>Hire Driver</option>
-                                        <option>Rent driver</option>
-                                    </select>
-                                </div>
-                            </div>
-                              <div class="form-group">
-                                <label for="category">Select drive</label>
+        <div class="form-group field-error">
+            <label for="telephone">Telephone</label>
+            <span class="error-message">*Invalid Number*</span>
+            <div class="telephone-wrapper field-error">
+                
+                <div class="country-code">
 
-                                <div class="select-wrapper">
-                                    <select id="category">
-                                        <option>Self Drive</option>
-                                        <option>Hire Driver</option>
-                                        <option>Rent driver</option>
-                                    </select>
-                                </div>
-                            </div>
-       
+                </div>
+                <input
+                    type="tel"
+                    id="telephone"
+                   
+                >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+               
+            >
+        </div>
+
+        <div class="form-group form-mess1">
+            <label for="message">Message</label>
+            <textarea
+                id="message"
+                rows="1"
+                placeholder="Start typing..."
+                oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"
+            ></textarea>
+        </div>
+
+        <div class="form-footer">
+            <div class="consent">
+                <div class="checkbox-main">
+                    <input type="checkbox" id="consent" checked>
+                </div>
+                <label for="consent">I agree to the Terms &amp; Conditions &amp; Privacy Policy</label>
+            </div>
+                                   <div class="supercar_btn hero_text_el">
+                                            <div class="supercar-text">SUBMIT ENQUIRY</div>
+                                            <div class="supercar_arrow_box">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8"
+                                                    viewBox="0 0 11 8" fill="none">
+                                                    <path
+                                                        d="M6.2978 0.159084C6.50991 -0.0530279 6.85444 -0.0530279 7.06655 0.159084L10.5227 3.61598C10.7348 3.82809 10.7348 4.17191 10.5227 4.38402L7.06655 7.84092C6.85444 8.05303 6.50991 8.05303 6.2978 7.84092C6.08569 7.62881 6.08569 7.28428 6.2978 7.07217L8.82753 4.54315H0V3.45685H8.82753L6.2978 0.927833C6.08569 0.715721 6.08569 0.371195 6.2978 0.159084Z"
+                                                        fill="black" />
+                                                </svg>
+                                            </div>
+                                        </div>
+        </div>
 
                           </div>
                     </div>
+              
+                 
                   </div>
             </div>
           </div>
     </section> 
     <script src="./assets/js/index.js"></script>
 </body>
-
 </html>
-
-
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="8" height="11" viewBox="0 0 8 11" fill="none">
-  <path d="M7.21683 6.46484C7.4121 6.66011 7.4121 6.97661 7.21683 7.17187L4.03519 10.3535C3.83993 10.5488 3.52342 10.5488 3.32816 10.3535L0.146522 7.17187C-0.0487402 6.97661 -0.0487402 6.66011 0.146522 6.46484C0.341784 6.26958 0.658291 6.26958 0.853553 6.46484L3.18168 8.79297L3.18168 -1.82784e-07L4.18168 -1.39072e-07L4.18168 8.79297L6.5098 6.46484C6.70507 6.26958 7.02157 6.26958 7.21683 6.46484Z" fill="white"/>
-</svg> -->

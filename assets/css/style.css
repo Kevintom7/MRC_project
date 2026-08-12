@@ -213,6 +213,7 @@ line-height: normal;
 .top_content{
     position: absolute;
     top: 766px;
+     top: clamp(500px, 69.8vh, 766px);
     width: 100%;
     z-index: 2;
     left: 0;
@@ -2157,13 +2158,15 @@ text-align: center;
     grid-template-columns: 1fr 1fr; */
     gap: 150px;
     display: flex;
+      max-width: 1920px;
      padding-right: 260px;
      height: 1400px;
+      margin: 0 auto;
 }
 .form-data{
     padding: 100px 0px;
     width: 100%;
-    max-width: 644px;
+    width: 684px;
    
 }
 .from-title {
@@ -2186,11 +2189,6 @@ font-style: normal;
 font-weight: 400;
 line-height: 28px; 
 }
-
-
-
-
-
 
 .booking-form h2 {
     margin: 0 0 20px;
@@ -2215,6 +2213,7 @@ line-height: 28px;
 .form-group {
     width: 100%;
     margin-bottom: 24px;
+    position: relative;
 }
 
 .form-group label {
@@ -2222,15 +2221,18 @@ line-height: 28px;
     margin-bottom: 5px;
 
     color: #FFF;
-    font-family: "Darker Grotesque", sans-serif;
-    font-size: 10px;
-    font-weight: 400;
+   font-family: "Darker Grotesque";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px; 
 }
 
 /* Inputs */
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
     height: 32px;
 
@@ -2245,8 +2247,10 @@ line-height: 28px;
 
     color: white;
     font-family: "Darker Grotesque", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+   font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px
 }
 .form-group select{
     width: 644px;
@@ -2263,9 +2267,172 @@ line-height: 28px;
 
 .select-wrapper{
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+.select-wrapper select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+}
+.field-icon{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+.field-icon svg{
+    display: block;
 }
 
+/* Date + time — same end icon, native picker indicator hidden */
+.select-wrapper input[type="date"]::-webkit-calendar-picker-indicator,
+.select-wrapper input[type="time"]::-webkit-calendar-picker-indicator{
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    cursor: pointer;
+}
+.select-wrapper input[type="date"],
+.select-wrapper input[type="time"]{
+    padding-right: 20px;
+}
+
+/* Telephone — reuses select-wrapper for the flag/code segment */
+.telephone-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.telephone-wrapper .country-code{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 14px;
+    color: #fff;
+    white-space: nowrap;
+    padding-right: 8px;
+    border-right: 1px solid #333;
+}
+.telephone-wrapper input{
+    border-bottom: none !important;
+}
+.form-group .error-message{
+    position: absolute;
+    right: 0;
+    top: 0;
+     display: none;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 10px;
+    font-style: italic;
+}
+.form-group.field-error input{
+    
+}
+.form-img{
+    width: 826px;
+     flex-shrink: 0; 
+}
+.form-img img{
+      width: 826px;
+    max-width: 826px;
+
+}
+/* Message */
+.form-group textarea{
+    resize: none;
+    overflow: hidden;
+    padding-top: 4px;
+}
+
+/* Consent + submit row */
+.form-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 36px;
+}
+.form-footer .consent{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.form-footer .consent input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: #E36A2B;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+.form-footer .consent input[type="checkbox"]:checked::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.form-footer .consent label{
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #C9C9C9;
+    margin: 0;
+}
+.form-footer .consent label a{
+    color: #fff;
+    text-decoration: underline;
+}
+.form-footer .submit-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 20px 32px;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.form-footer .submit-btn svg{
+    width: 16px;
+    height: 16px;
+}
+.form-mess1{
+    padding-top: 60px;
+}
+.checkbox-main{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
 @media (max-width: 1500px) {
 .filter_class{
     overflow-x: auto;
