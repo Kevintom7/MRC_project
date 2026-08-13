@@ -28,9 +28,10 @@ body{
 }
 .container{
     max-width: 1460px;
-    /* padding: 0px 30px; */
-    padding: 0px 28px;
+    padding: 0px 30px;
+    /* padding: 0px 28px; */
     margin: 0 auto;
+     width:100%;
 }
 .header_section{
     height: 100px;
@@ -47,6 +48,7 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 100px;
+    max-width: 1400px;
  
    
 }
@@ -213,7 +215,7 @@ line-height: normal;
 .top_content{
     position: absolute;
     top: 766px;
-     top: clamp(500px, 69.8vh, 766px);
+     top: clamp(500px, 71vh, 766px);
     width: 100%;
     z-index: 2;
     left: 0;
@@ -984,8 +986,9 @@ letter-spacing: 1.2px;
 .premimum_right{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
 }
+
 .premimum_right_content h4{
 font-size: 22px;
 font-style: normal;
@@ -1075,6 +1078,7 @@ font-size: 22px;
 font-style: normal;
 font-weight: 400;
 line-height: 28px;
+color: #fff;
 }
 .premimum_right_content{
     display: flex;
@@ -1297,7 +1301,8 @@ h6,h3{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 16px;
+    /* padding-left: 16px; */
+    padding-left: 12px;
     transition: background-color 0.3s ease;
   }
 
@@ -1455,7 +1460,8 @@ letter-spacing: 1.8px;
  .filter_class{
     padding: 60px 0px;
     display: flex;
-    gap: 12px;
+    /* gap: 12px; */
+    gap: 11.2px;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -1467,7 +1473,8 @@ letter-spacing: 1.8px;
     display: none;
 }
 .filter_category{
-    padding: 12.5px 20px;
+    /* padding: 12.5px 20px; */
+     padding: 11.5px 20px;
 }
 .filter_category h4{
     text-align: center;
@@ -1477,6 +1484,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 140%;
 white-space: nowrap;
+color: #C9C9C9;
 }
 .filter_category h3{
     text-align: center;
@@ -1486,6 +1494,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 140%;
 white-space: nowrap;
+color: #C9C9C9;
 }
 
 
@@ -1822,8 +1831,12 @@ padding-top: 10px;
     background-color: #FF8000;
     border-color: #FF8000;
     color: #000;
+   
 }
-
+.filter_category.active h4{
+    color: #000;
+     font-weight: 700;
+}
 .supercar_card.is-hidden{
     display: none;
 }
@@ -1837,12 +1850,11 @@ padding-top: 10px;
 /*service_section*/
 .service_section{
     padding-top: 120px;
-    border-top: 2px solid
-     white;
+    border-top: 1px solid #595959;;
 
 }
 .supercar_section{
-    padding-bottom: 120px;
+    padding-bottom: 150px;
 }
 .service-content{
     display: flex;
@@ -1878,10 +1890,13 @@ font-style: normal;
 font-weight: 400;
 line-height: 28px;
  text-align: center;
+ color: #fff;
 }
 .service_items{
     padding: 100px 0px;
     display: flex;
+    /* gap: 50px; */
+      gap: 80px;
 
 }
 .service-main-card{
@@ -1918,13 +1933,20 @@ line-height: 140%;
 }
 
 .service-main-card:hover {
-     transform: skew(-19deg) scale(1.05);
+     transform: skew(-19deg) scale(1.2);
     background: var(--MRC-Black, #000);
     filter: drop-shadow(0 0 30px rgba(255, 128, 0, 0.40));
 }
 .service-main-card:hover .service-main-content svg path{
     stroke: #FF8000;
 }
+
+
+.service-main-card {
+   
+    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 
 /*business_section*/
 .business_section{
@@ -1972,7 +1994,7 @@ line-height: 28px;
 }
 .business_content_down{
     display: flex;
-     gap: 20px;
+     gap: 30px;
 }
 
 .quotes_section{
@@ -2083,7 +2105,7 @@ line-height: 120%; /* 72px */
 letter-spacing: 1.8px;
 text-align: center;
 }
-.progress-slider{
+/* .progress-slider{
     display: flex;
     align-items: center;
     height: 250px;
@@ -2106,6 +2128,55 @@ font-style: normal;
 font-weight: 500;
 line-height: 140%;
 
+} */
+ .progress-slider{
+    display: flex;
+    align-items: center;
+    height: auto;              /* was 250px — let content decide height */
+    width: 100%;
+    justify-content: center;
+    /* flex-wrap: wrap;          */
+      /* allow cards to drop to next line on small screens */
+                 /* row-gap when wrapped; column spacing handled by arrows */
+}
+
+.progress-card{
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #767676;
+    align-items: center;
+    justify-content: center;
+    width: clamp(180px, 22vw, 313px);   /* shrinks fluidly instead of a fixed 313px */
+    flex: 1 1 220px;                     /* lets flexbox shrink it further if needed */
+    min-width: 0;
+    height: auto;
+    min-height: 250px;
+    text-align: center;
+}
+
+.progress-card svg{
+    width: clamp(50px, 6vw, 80px);   /* shrink the icon proportionally */
+    height: auto;
+}
+
+.progress-card h6{
+    font-family: "Darker Grotesque";
+    font-size: clamp(18px, 2vw, 30px);   /* fluid text size */
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #fff;
+}
+
+.progress-arrow{
+    flex-shrink: 0;
+}
+
+.progress-arrow svg{
+    width: clamp(30px, 4vw, 50px);
+    height: clamp(30px, 4vw, 50px);
 }
 .progress_body{
     max-width: 1000px;
@@ -2117,6 +2188,8 @@ font-size: 22px;
 font-style: normal;
 font-weight: 400;
 line-height: 28px;
+color: #FFF;
+text-align: center;
 }
 .progress-card:hover{
 border: 1px solid #FF8000;
@@ -2128,7 +2201,9 @@ border: 1px solid #FF8000;
     display: inline;
 }
 
-/* form heading*/
+
+
+/* form heading */
 .form_section .container{
     padding-left: 0px;
 }
@@ -2138,37 +2213,55 @@ border: 1px solid #FF8000;
 }
 .form_headng h6{
     font-family: "Darker Grotesque";
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: 140%;
-text-align: center;
+    font-size: clamp(18px, 2vw, 24px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    text-align: center;
+    color: #AEAEAE;
 }
 .form_headng h2{
     font-family: "IvyOra Display";
-font-size: 60px;
-font-style: normal;
-font-weight: 500;
-line-height: 120%; /* 72px */
-letter-spacing: 1.8px;
-text-align: center;
+    font-size: clamp(36px, 5vw, 60px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 1.8px;
+    text-align: center;
 }
+
 .form-content{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    gap: 150px;
+    gap: clamp(30px, 8vw, 150px);
     display: flex;
-      max-width: 1920px;
-     padding-right: 260px;
-     height: 1400px;
-      margin: 0 auto;
+    flex-wrap: wrap;           /* let image + form stack when there's no room */
+    max-width: 1920px;
+    width: 100%;
+    padding-right: clamp(20px, 14vw, 260px);
+    justify-content: space-between;
+    border-top: 1px solid grey;
 }
+
+.form-img{
+    width: 826px;
+    max-width: 40vw;           /* shrink with viewport instead of staying pinned at 826px */
+    flex: 1 1 400px;           /* allow it to shrink/grow within the row */
+    flex-shrink: 1;
+}
+.form-img img{
+        width: 826px;
+    max-width: 826px;
+    height: auto;
+    display: block;
+}
+
 .form-data{
     padding: 100px 0px;
     width: 100%;
-    width: 684px;
-   
+    max-width: 684px;          /* was width:684px (fixed) — max-width lets it shrink */
+    flex: 1 1 320px;
+    min-width: 0;
 }
+
 .from-title {
     display: flex;
     flex-direction: column;
@@ -2177,88 +2270,60 @@ text-align: center;
 }
 .from-title h4{
     font-family: "IvyOra Display";
-font-size: 30px;
-font-style: normal;
-font-weight: 400;
-line-height: 120%
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 101%;
 }
 .from-title p{
     font-family: "Darker Grotesque";
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: 28px; 
-}
-
-.booking-form h2 {
-    margin: 0 0 20px;
-
-    font-family: "Darker Grotesque", sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 120%;
-}
-
-.booking-form > p {
-    margin: 0 0 32px;
-
-    font-family: "Darker Grotesque", sans-serif;
-    font-size: 14px;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 28px;
 }
 
 /* Each field */
-
 .form-group {
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     position: relative;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
-
     color: #FFF;
-   font-family: "Darker Grotesque";
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 14px; 
+    font-family: "Darker Grotesque";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
 }
 
 /* Inputs */
-
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    height: 32px;
-
+    height: 33px;
     padding: 0;
-
     border: none;
     border-bottom: 1px solid #555;
     border-radius: 0;
     outline: none;
-
     background: black;
-
     color: white;
     font-family: "Darker Grotesque", sans-serif;
-   font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: 28px
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
 }
 .form-group select{
-    width: 644px;
+    width: 100%;               /* was fixed 644px — inherit full field width instead */
 }
 
-
 /* Date + time */
-
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2290,7 +2355,6 @@ line-height: 28px
     display: block;
 }
 
-/* Date + time — same end icon, native picker indicator hidden */
 .select-wrapper input[type="date"]::-webkit-calendar-picker-indicator,
 .select-wrapper input[type="time"]::-webkit-calendar-picker-indicator{
     opacity: 0;
@@ -2305,14 +2369,13 @@ line-height: 28px
     padding-right: 20px;
 }
 
-/* Telephone — reuses select-wrapper for the flag/code segment */
+/* Telephone */
 .telephone-wrapper{
     display: flex;
     align-items: center;
     gap: 10px;
     border-bottom: 1px solid #555;
 }
-
 .telephone-wrapper .country-code{
     display: flex;
     align-items: center;
@@ -2331,28 +2394,17 @@ line-height: 28px
     position: absolute;
     right: 0;
     top: 0;
-     display: none;
+    display: none;
     font-family: "Darker Grotesque", sans-serif;
     font-size: 10px;
     font-style: italic;
 }
-.form-group.field-error input{
-    
-}
-.form-img{
-    width: 826px;
-     flex-shrink: 0; 
-}
-.form-img img{
-      width: 826px;
-    max-width: 826px;
 
-}
 /* Message */
 .form-group textarea{
     resize: none;
     overflow: hidden;
-    padding-top: 4px;
+   
 }
 
 /* Consent + submit row */
@@ -2360,8 +2412,9 @@ line-height: 28px
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;           /* allow submit button to drop below on narrow widths */
     gap: 24px;
-    padding-top: 36px;
+    padding-top: 20px;
 }
 .form-footer .consent{
     display: flex;
@@ -2401,29 +2454,8 @@ line-height: 28px
     color: #fff;
     text-decoration: underline;
 }
-.form-footer .submit-btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    background: #fff;
-    color: #000;
-    border: none;
-    padding: 20px 32px;
-    font-family: "Darker Grotesque", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    white-space: nowrap;
-}
-.form-footer .submit-btn svg{
-    width: 16px;
-    height: 16px;
-}
 .form-mess1{
-    padding-top: 60px;
+    padding-top: 20px;
 }
 .checkbox-main{
     width: 32px;
@@ -2432,6 +2464,214 @@ line-height: 28px
     justify-content: center;
     align-items: center;
     border: 1px solid white;
+}
+.form_footer_btn{
+    height: 60px;
+}
+
+
+.loop_section{
+   background: #161616;
+}
+.loop_wrapper{
+    padding: 70px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.loop_data{
+    display: flex;
+
+    gap: 60px;
+}
+.loop_wrapper h4{
+    font-family: "IvyOra Display";
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%;
+}
+.loop_data1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 523px;
+    max-width: 523px;
+}
+
+.loop_data1 input {
+    width: 100%;
+    height: 40px;
+     background: #161616;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    box-sizing: border-box;
+}
+.loop_data1 h6{
+font-family: "Darker Grotesque";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 14px;
+}
+.loop_btn{
+    max-width: 230px;
+}
+
+
+/* .footer_section .container{
+    padding-right: 0px;
+} */
+.footer_wrapper{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+.footer_main{
+    display: flex;
+    padding-bottom: 100px;
+  
+}
+.footer_content{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1214px; */
+    display: flex;
+
+}
+.footer_home{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 404px;
+  
+}
+.footer_Vehicles{
+      display: flex;
+    flex-direction: column;
+    gap: 10px;
+     width: 404px;
+}
+.footer_Vehicles h6{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.footer_home h6{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.footer_hire{
+   color: #FFF;
+font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: 28px
+}
+.footer_Luxury{
+color: #999;
+}
+.footer_service{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+     width: 404px;
+
+}
+.footer_services{
+     display: flex;
+    flex-direction: column;
+    gap: 10px;  
+}
+.footer_contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer_services h6,.footer_contact h6{
+    font-family: "Darker Grotesque";
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+}
+.footer_address{
+    padding-bottom: 30px;
+}
+.footer_icon_section{
+    display: flex;
+    gap: 20px;
+}
+.footer_icon
+{
+    width: 32px;
+height: 32px;
+flex-shrink: 0;
+border: 1px solid var(--MRC-orange, #FF8000);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.footer_copy{
+    border-top: 1px solid white;
+}
+.footer_copy_wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+.footer_copy_left{
+    
+
+}
+.footer_terms{
+    display:flex;
+    gap: 20px;
+}
+.footer_terms h6{
+    font-family: "Darker Grotesque";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; 
+}
+.footer_right h6{
+font-family: "Darker Grotesque";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; 
+color: #727272;
+}
+.footer_copy_right{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+ .footer_copy_right h6 {
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    color: #fff;
+}
+
+.footer_copy_right span{
+    font-weight: 700;
+}
+.made-with svg {
+    display: block;
+    flex-shrink: 0;
 }
 @media (max-width: 1500px) {
 .filter_class{
@@ -2581,7 +2821,16 @@ line-height: 28px
     max-width: none;
    }
    
- 
+ /*progress section*/
+     .progress-slider{
+        flex-direction: column;
+    }
+     .progress-arrow{
+        transform: rotate(90deg);   /* arrows now point down between stacked cards */
+    }
+    .progress-card{
+        width: clamp(160px, 40vw, 280px);
+    }
 
 }
 
@@ -2628,6 +2877,16 @@ line-height: 28px
             
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
+    }
+
+    /*progress section*/
+      .progress-slider{
+        flex-direction: column;
+        height: auto;
+    }
+    .progress-card{
+        width: 100%;
+        max-width: 340px;
     }
 }
 
@@ -3028,4 +3287,86 @@ line-height: 24px
 .supercard-head {
     justify-content: space-between;
 }
+}
+
+
+
+
+
+
+
+@media (max-width: 1400px){
+    .form-content{
+        padding-right: 0px;
+        flex-direction: column;
+        align-items: stretch;      /* let children stretch to full row width */
+    }
+
+    .form-img{
+        width: 100%;
+        max-width: 100%;           /* override the 40vw cap from base styles */
+        flex: none;                /* remove flex-basis/grow/shrink from row layout */
+    }
+
+    .form-img img{
+        width: 100%;
+        max-width: none;           /* override the 826px cap so it fills the section */
+        height: auto;
+        display: block;
+    }
+
+    .form-data{
+        max-width: 100%;
+        width: 100%;
+        flex: none;
+        padding-left:60px;
+        padding-right: 60px;
+    }
+}
+
+@media (max-width: 1100px){
+    .form-content{
+        flex-direction: column;    /* image stacks on top of the form */
+        align-items: center;
+        padding-right: 30px;
+    }
+    .form-img{
+        max-width: 100%;
+        width: 100%;
+    }
+    .form-img img{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .form-data{
+        max-width: 100%;
+        padding: 60px 0px;
+    }
+}
+
+@media (max-width: 767px){
+    .form_headng{
+        padding-top: 80px;
+        padding-bottom: 50px;
+    }
+    .form-content{
+        padding-right: 20px;
+        padding-left: 20px;
+        gap: 30px;
+    }
+    .form-row{
+        grid-template-columns: 1fr;   /* date/time stack instead of squeezing side by side */
+    }
+    .form-footer{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-footer .consent{
+        order: 2;
+    }
+    .supercar_btn{
+        order: 1;
+        width: 100%;
+        max-width: none;
+    }
 }
