@@ -382,3 +382,71 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const wrapper = document.getElementById('pickupTimeWrapper');
+    const display = document.getElementById('pickupTimeDisplay');
+    const dropdown = document.getElementById('pickupTimeDropdown');
+    const hourCol = document.getElementById('timeHourCol');
+    const minuteCol = document.getElementById('timeMinuteCol');
+    const ampmCol = document.getElementById('timeAmpmCol');
+    const hiddenInput = document.getElementById('pickup-time');
+    if (!wrapper) return;
+
+    let selected = { hour: 10, minute: '00', ampm: 'AM' };
+
+    function buildColumn(container, values, matchFn, onPick) {
+        container.innerHTML = '';
+        values.forEach(function (val) {
+            const opt = document.createElement('div');
+            opt.className = 'time-option' + (matchFn(val) ? ' selected' : '');
+            opt.textContent = val;
+            opt.addEventListener('click', function (e) {
+                e.stopPropagation();
+                onPick(val);
+                render();
+            });
+            container.appendChild(opt);
+        });
+    }
+
+    function render() {
+        const hours = Array.from({ length: 12 }, (_, i) => i + 1);
+        const minutes = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, '0'));
+        const ampms = ['AM', 'PM'];
+
+        buildColumn(hourCol, hours, (v) => v === selected.hour, (v) => { selected.hour = v; });
+        buildColumn(minuteCol, minutes, (v) => v === selected.minute, (v) => { selected.minute = v; });
+        buildColumn(ampmCol, ampms, (v) => v === selected.ampm, (v) => { selected.ampm = v; });
+
+        const displayText = selected.hour + ':' + selected.minute + selected.ampm.toLowerCase();
+        display.textContent = displayText;
+        hiddenInput.value = selected.hour + ':' + selected.minute + ' ' + selected.ampm;
+    }
+
+    function toggleDropdown(force) {
+        const shouldOpen = force !== undefined ? force : !dropdown.classList.contains('open');
+        dropdown.classList.toggle('open', shouldOpen);
+        wrapper.classList.toggle('open', shouldOpen);
+    }
+
+    display.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleDropdown();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!wrapper.contains(e.target)) toggleDropdown(false);
+    });
+
+    render();
+});
