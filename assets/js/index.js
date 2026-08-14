@@ -232,3 +232,153 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+(function initHeaderScroll() {
+    const header = document.querySelector('.header_section');
+    const topSection = document.querySelector('.top_section');
+    if (!header || !topSection) return;
+
+    const MOBILE_BREAKPOINT = 1024;
+
+    function isMobile() {
+        return window.innerWidth <= MOBILE_BREAKPOINT;
+    }
+
+    function updateHeader() {
+        // on mobile: always visible, let CSS media query handle the black bg
+        if (isMobile()) {
+            header.classList.remove('header-hidden');
+            header.classList.remove('header-solid');
+            return;
+        }
+
+        // desktop behavior
+        const currentScrollY = window.scrollY;
+        const heroHeight = topSection.offsetHeight;
+
+        if (currentScrollY <= 0) {
+            header.classList.remove('header-hidden');
+            header.classList.remove('header-solid');
+        } else if (currentScrollY < heroHeight) {
+            header.classList.add('header-hidden');
+            header.classList.remove('header-solid');
+        } else {
+            header.classList.remove('header-hidden');
+            header.classList.add('header-solid');
+        }
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader, { passive: true });
+    updateHeader(); // set correct state on load
+})();
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const submitBtn = document.querySelector('.form_footer_btn');
+    if (!submitBtn) return;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9+()\s-]{7,}$/;
+
+    function setInvalid(group, isInvalid) {
+        if (!group) return;
+        group.classList.toggle('invalid', isInvalid);
+    }
+
+    function validateSelect(id) {
+        const el = document.getElementById(id);
+        if (!el) return true;
+        const group = el.closest('.form-group');
+        const placeholder = el.options[0] ? el.options[0].value : '';
+        const isInvalid = !el.value || el.value === placeholder;
+        setInvalid(group, isInvalid);
+        return !isInvalid;
+    }
+
+    function validateRequiredText(id) {
+        const el = document.getElementById(id);
+        if (!el) return true;
+        const group = el.closest('.form-group');
+        const isInvalid = el.value.trim() === '';
+        setInvalid(group, isInvalid);
+        return !isInvalid;
+    }
+
+    function validateEmail() {
+        const el = document.getElementById('email');
+        if (!el) return true;
+        const group = el.closest('.form-group');
+        const isInvalid = el.value.trim() === '' || !emailRegex.test(el.value.trim());
+        setInvalid(group, isInvalid);
+        return !isInvalid;
+    }
+
+    function validatePhone() {
+        const el = document.getElementById('telephone');
+        if (!el) return true;
+        const group = el.closest('.form-group');
+        const isInvalid = el.value.trim() === '' || !phoneRegex.test(el.value.trim());
+        setInvalid(group, isInvalid);
+        return !isInvalid;
+    }
+
+    function validateForm() {
+        const results = [
+            validateSelect('category'),
+            validateSelect('drive-type'),
+            validateSelect('vehicle'),
+            validateRequiredText('location'),
+            validateRequiredText('pickup-date'),
+            validateRequiredText('pickup-time'),
+            validateRequiredText('name'),
+            validatePhone(),
+            validateEmail(),
+        ];
+        return results.every(Boolean);
+    }
+
+    submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isValid = validateForm();
+
+        if (!isValid) {
+            const firstInvalid = document.querySelector('.form-group.invalid');
+            if (firstInvalid) {
+                firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        // TODO: hook up real submission here
+        console.log('Form is valid — ready to submit');
+    });
+
+    // clear the red state as soon as the person fixes a field
+    ['category', 'drive-type', 'vehicle', 'location', 'pickup-date', 'pickup-time', 'name', 'telephone', 'email'].forEach(function (id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', function () {
+            const group = el.closest('.form-group');
+            setInvalid(group, false);
+        });
+        el.addEventListener('change', function () {
+            const group = el.closest('.form-group');
+            setInvalid(group, false);
+        });
+    });
+});
