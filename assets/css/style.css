@@ -334,7 +334,7 @@ line-height: normal;
          clip-path: polygon(
          34.48% 0, 
         100% 0,
-        71.43% 100%,
+        79.43% 100%,
         0 100%
     );
 }
@@ -1621,13 +1621,15 @@ padding-top: 10px;
 }
 
 .supercard_view_btn svg{
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     transform: translateX(-10px);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.supercar_card:hover svg{
-    display: block;
+.supercar_card:hover .supercard_view_btn svg{
+    opacity: 1;
+    visibility: visible;
     transform: translateX(0);
 }
 
@@ -1759,7 +1761,7 @@ padding-top: 10px;
 }
 
 /* hovering the button itself slides the box back to reveal the stripes */
-.supercar_card :hover .cta-fade-box{
+.supercar_card:hover .cta-fade-box{
     transform: translateX(0);
 }
 
@@ -1936,6 +1938,7 @@ line-height: 28px;
 .service-main-content h6{
     font-family: "Darker Grotesque";
 font-size: 24px;
+font-size: clamp(16px, 1.8vw, 24px);
 font-style: normal;
 font-weight: 500;
 line-height: 140%; 
@@ -2565,6 +2568,9 @@ line-height: 14px;
 
 .footer_section .container{
     padding-right: 0px;
+    margin: 0;
+    max-width: none;
+    padding-left: 260px;
 }
 .footer_wrapper{
     padding-top: 100px;
@@ -2575,7 +2581,7 @@ line-height: 14px;
 .footer_main{
     display: flex;
     padding-bottom: 100px;
-    flex-wrap: nowrap; 
+    flex-wrap: wrap; 
 }
 .footer_content{
     /* display: grid;
@@ -2711,7 +2717,9 @@ color: #727272;
 color: #727272;
 }
 .footer-img{
-    margin-top: -32px;
+    /* margin-top: -32px; */
+    display: flex;
+    align-items: flex-start;
 }
 .footer_copy_right{
     display: flex;
@@ -2874,6 +2882,32 @@ line-height: 22px;
    .service-items1{
         gap: 0px;
     }
+.service-main-card{
+    position: relative;
+}
+
+.service-card-arrow {
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+
+    opacity: 0;
+    transform: skew(19deg) translateY(10px);
+
+    transition: opacity 0.35s ease,
+                transform 0.35s ease;
+
+    pointer-events: none;
+}
+
+.service-main-card:hover .service-card-arrow {
+    opacity: 1;
+    transform: skew(19deg) translateY(0);
+}
+
+
+
+
 @media (max-width: 1500px) {
 .filter_class{
     overflow-x: auto;
@@ -2920,6 +2954,9 @@ line-height: 22px;
 .quote-text{
     padding: 13px 0px 17px 17px;
 }
+.quote-btn:hover .quote-text{
+    font-size: 21px;
+}
 .arrow-box{
     padding-left: 0px;
     justify-content: center;
@@ -2958,7 +2995,7 @@ line-height: 22px;
 }
 /*top_section*/
 .top_section {
-    height: 71vh;
+    height: 84vh;
 }
 .top_content{
     top: 628px;
@@ -3007,7 +3044,11 @@ line-height: 22px;
     .service-main-card{
         width: 260px;
     } 
- 
+ .supercar_btn:hover {
+    border: 1px solid #FF8000;
+    border-right: none;
+    clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);
+}
 
     /*business_section*/
 .business_content_top
@@ -3099,6 +3140,70 @@ line-height: 22px;
         max-width: none;
         padding: 20px;
     }
+
+
+
+
+
+    
+ /*premium_section*/
+  .premimum_wrapper{
+    padding: 60px 0px;
+  }
+      .mobile-break {
+        display: none;
+    }
+  .premimum_left h3,.expander-car-name1 h3,.supercard-head h3 {
+    font-size: 35px;
+    letter-spacing: 1.05px;
+  }
+  .premimum_content{
+    gap: 20px;
+  }
+  .premimum_content h4,.premimum_right_content p{
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .premimum_right_content{
+    gap: 20px;
+  }
+  .premimum_right {
+    gap: 20px;
+  }
+ .car_expander{
+    height: 550px;
+
+ }
+ .lan-rover-svg svg{
+    width: 55px;
+height: 15px;
+aspect-ratio: 11/3;
+ }
+ .car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .lan-rover-svg svg {
+        width: 55px;
+height: 15px;
+aspect-ratio: 11/3;
+ }
+  .car_expander:has(.car_expander-img:hover)  .lan-rover-svg svg {
+        width: 85px;
+height: 45px;
+aspect-ratio: 11/3;
+ }
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .expander_overlay-svg {
+    align-items: normal;
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car-line {
+    display: none;
+}
+.non-hover-text h6{
+    display: none;
+}
+.car_expander_bottom h6 {
+    font-size: 20px;
+}
+.car_expander_bottom {
+    gap: 10px;
+}
 }
 
 
@@ -3543,64 +3648,6 @@ line-height: 120%;
     padding-top: 20px;
  }
 
- /*premium_section*/
-  .premimum_wrapper{
-    padding: 60px 0px;
-  }
-      .mobile-break {
-        display: none;
-    }
-  .premimum_left h3,.expander-car-name1 h3,.supercard-head h3 {
-    font-size: 35px;
-    letter-spacing: 1.05px;
-  }
-  .premimum_content{
-    gap: 20px;
-  }
-  .premimum_content h4,.premimum_right_content p{
-    font-size: 18px;
-    line-height: 24px;
-  }
-  .premimum_right_content{
-    gap: 20px;
-  }
-  .premimum_right {
-    gap: 20px;
-  }
- .car_expander{
-    height: 550px;
-
- }
- .lan-rover-svg svg{
-    width: 55px;
-height: 15px;
-aspect-ratio: 11/3;
- }
- .car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .lan-rover-svg svg {
-        width: 55px;
-height: 15px;
-aspect-ratio: 11/3;
- }
-  .car_expander:has(.car_expander-img:hover)  .lan-rover-svg svg {
-        width: 85px;
-height: 45px;
-aspect-ratio: 11/3;
- }
-.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .expander_overlay-svg {
-    align-items: normal;
-}
-.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car-line {
-    display: none;
-}
-.non-hover-text h6{
-    display: none;
-}
-.car_expander_bottom h6 {
-    font-size: 20px;
-}
-.car_expander_bottom {
-    gap: 10px;
-}
 /*supercar_section*/
 .supercar_wrapper{
     padding-top: 60px;
@@ -3799,3 +3846,228 @@ letter-spacing: 1.5px;
 }
 
 
+/* Responsive cards inside the "OUR SERVICES" mega menu */
+.megamenu .service_items{
+    display: flex;
+   
+    gap: clamp(16px, 2.5vw, 60px);
+    row-gap: 30px;
+    padding: 40px 0px;
+    justify-content: flex-start;
+}
+
+.megamenu .service-main-card{
+    flex: 1 1 180px;      /* grow/shrink, min 180px before wrapping */
+    max-width:370px;
+    width: 100%;
+    height: clamp(160px, 16vw, 280px);
+}
+
+.megamenu .service-main-content svg{
+    width: clamp(50px, 5vw, 80px);
+    height: auto;
+}
+
+.megamenu .service-main-content h6{
+    font-size: clamp(15px, 1.4vw, 22px);
+    white-space: normal;
+    text-align: center;
+}
+
+/* Smaller hover scale so the skewed glow box stays inside its own card */
+.megamenu .service-main-card:hover{
+    transform: skew(-19deg) scale(1.05);
+}
+
+@media (max-width: 1200px){
+    .megamenu .service_items{
+        gap: 20px;
+    }
+    .megamenu .service-main-card{
+        flex-basis: 45%;
+        max-width: none;
+    }
+}
+
+
+
+@media (max-width: 1600px) and (min-width: 1025px){
+    .footer_section .container{
+        padding-left: clamp(20px, 10vw, 260px);
+    }
+}
+
+@media (max-width: 1600px) and (min-width: 1025px){
+    .footer_home,
+    .footer_Vehicles,
+    .footer_service{
+        width: auto;
+        max-width: 404px;
+        flex: 1 1 260px;
+    }
+}
+
+@media (max-width: 1024px){
+    .footer_section .container{
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 100%;
+    }
+    .footer_content{
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    .footer_home,
+    .footer_Vehicles,
+    .footer_service{
+        width: 100%;
+        max-width: none;
+    }
+    .footer-img{
+        margin-top: 0;
+    }
+}
+
+/* Base (desktop) - matches what you already have */
+.footer_copy{
+    border-top: 1px solid #727272;
+}
+.footer_copy_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 40px 0 47px;
+}
+.footer_terms{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer_terms h6{
+    font-family: "Darker Grotesque";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+}
+.footer_right{
+    color: #727272;
+}
+.footer_copy_right{
+    display: flex;
+    align-items: center;
+}
+.footer_copy_right img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tablet and below */
+@media (max-width: 1024px){
+    .footer_copy_right img{
+        max-width: 200px;
+    }
+}
+
+/* Mobile - stack terms above logo/badge */
+@media (max-width: 767px){
+    .footer_copy_wrapper{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px 0;
+    }
+    .footer_terms{
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    .footer_terms h6{
+        white-space: normal;
+    }
+    .footer_copy_right{
+        align-self: flex-start;
+    }
+    .footer_copy_right img{
+        max-width: 180px;
+    }
+}
+
+/* Small mobile - terms links stack vertically */
+@media (max-width: 567px){
+    .footer_copy_wrapper{
+        padding: 24px 0;
+        gap: 16px;
+    }
+    .footer_terms{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .footer_right{
+        margin-top: 4px;
+    }
+    .footer_copy_right img{
+        max-width: 150px;
+    }
+}
+
+
+
+
+.backtotop_wrap{
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+/* bars sit fixed below the box, hidden until hover */
+.backtotop_bars{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.backtotop_bars .backtotop_bar{
+    opacity: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #FFF;
+}
+.backtotop_wrap:hover .bar3{
+    opacity: .4;
+}
+.backtotop_wrap:hover .bar2{
+    opacity: .6;
+}
+.backtotop_wrap:hover .bar1{
+    opacity: .8;
+}
+
+/* the box slides UP on hover */
+.footer_btnn{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: visible;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.backtotop_wrap:hover .footer_btnn{
+    transform: translateY(-30px);
+    background-color: #FFF;
+}
+.footer_btnn svg path{
+    transition: fill 0.3s ease;
+}
+.backtotop_wrap:hover .footer_btnn svg path,
+.backtotop_wrap:hover .footer_btnn svg rect{
+    stroke: #fff;
+    fill: #000;
+}
