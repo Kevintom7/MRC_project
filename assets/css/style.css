@@ -121,7 +121,7 @@ font-weight: 600;
 line-height: normal;
 white-space: nowrap;
 }
-
+/* 
 .quote-btn{
     max-width: 250px;
     width: 100%;
@@ -153,7 +153,7 @@ height: 100%;
     background: #fff;
     padding-left: 33px;
     display: flex;
-    /* justify-content: center; */
+   
     align-items: center;
 
     clip-path: polygon(
@@ -187,6 +187,149 @@ line-height: normal;
 .quote-btn:hover .arrow-box svg {
    transform: translateX(-5px);
 
+} */
+
+.quote-btn {
+    position: relative;
+    max-width: 250px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+
+    /* Don't use border or clip-path on the actual button */
+    border: none;
+    overflow: hidden;
+}
+
+
+/* =========================
+   OUTER ANGLED BORDER
+   ========================= */
+
+.quote-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid white;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        92% 100%,
+        0 100%
+    );
+
+    pointer-events: none;
+    z-index: 5;
+
+    transition: border-color 0.3s ease;
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.quote-text {
+    position: relative;
+    z-index: 2;
+
+    color: #fff;
+    text-align: center;
+    font-family: "Darker Grotesque";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    padding: 13px 0 17px 24px;
+    height: 100%;
+
+    transition: font-weight 0.2s ease;
+}
+
+
+/* =========================
+   ARROW BOX
+   ========================= */
+
+.arrow-box {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    max-width: 70px;
+    height: 100%;
+
+    background: #fff;
+
+    padding-left: 33px;
+
+    display: flex;
+    align-items: center;
+
+    clip-path: polygon(
+        28.57% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    /* transition:
+        background 0.3s ease,
+        clip-path 0.3s ease; */
+}
+
+
+.arrow-box svg {
+    transition: transform 0.3s ease;
+}
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.quote-btn:hover::before {
+    border-color: #FF8000;
+  
+}
+
+.quote-btn:hover .quote-text {
+    font-weight: 800;
+   
+}
+
+.quote-btn:hover .arrow-box {
+    background: #FF8000;
+
+    clip-path: polygon(
+        28.57% 0,
+        100% 0,
+        71.43% 100%,
+        0 100%
+    );
+}
+
+
+.quote-btn:hover .arrow-box svg {
+    transform: translateX(-5px);
+}
+.quote-btn:hover {
+    background: #000;
+}
+.quote-btn:hover {
+    background: linear-gradient(
+        to right,
+        #000 0%,
+        #000 80%,
+        transparent 80%,
+        transparent 100%
+    );
 }
 /* .quote-btn:hover {
     clip-path: polygon(0 0, 100% 0, 71.43% 100%, 0 100%);
@@ -303,72 +446,141 @@ line-height: normal;
     MAX-HEIGHT: 60PX;
     ALIGN-ITEMS: center;
 }
+.supercar_btn {
+    position: relative;
 
-.supercar_btn{
-   max-width: 205px;
+    max-width: 205px;
     width: 100%;
     height: 50px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-     border: solid 1px white;
+
+    border: none;
     overflow: hidden;
-  
 
+    background: transparent;
 }
-.supercar_btn:hover{
-  border: 1px solid #FF8000;
-    border-right: none;
 
-    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
-}
-.supercar_btn:hover .supercar-text{
-    font-size: 18px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
 
-}
-.supercar_btn:hover .supercar_arrow_box{
-       background: #FF8000;
-         clip-path: polygon(
-         34.48% 0, 
+/* =========================
+   ANGLED BORDER
+   ========================= */
+
+.supercar_btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid white;
+
+    clip-path: polygon(
+        0 0,
         100% 0,
-        79.43% 100%,
+        92% 100%,
         0 100%
     );
+
+    pointer-events: none;
+    z-index: 5;
+
+    transition: border-color 0.3s ease;
 }
-.supercar-text{
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.supercar-text {
+    position: relative;
+    z-index: 6;
+
     color: #FFF;
 
-font-family: "Darker Grotesque";
-font-size: 18px;
-font-style: normal;
-font-weight: 600;
- white-space: nowrap;
-text-transform: uppercase;
-    padding: 8px 0px 11px 20PX;
+    font-family: "Darker Grotesque";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    padding: 8px 0 11px 20px;
+
+    transition: font-weight 0.2s ease;
 }
-.supercar_arrow_box{
-       width: 100%;
-    max-width: 58px;   
+
+
+/* =========================
+   ARROW BOX
+   ========================= */
+
+.supercar_arrow_box {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    max-width: 58px;
     height: 100%;
+
     background: #fff;
-   
+
     display: flex;
-    /* justify-content: center; */
     align-items: center;
+
     padding-left: 28px;
-    /* clip-path: polygon(
-         28.57% 0,
+
+    clip-path: polygon(
+        34.48% 0,
         100% 0,
         100% 100%,
         0 100%
-    ); */
+    );
 
-     clip-path: polygon(34.48% 0, 100% 0, 100% 100%, 0 100%);
+   /* transition:
+        background 0.3s ease,
+        clip-path 0.3s ease; */
 }
 
+
+/* =========================
+   HOVER
+   ========================= */
+
+.supercar_btn:hover {
+    background: linear-gradient(
+        to right,
+        #000 0%,
+        #000 85%,
+        transparent 80%,
+        transparent 100%
+    );
+}
+
+.supercar_btn:hover::before {
+    border-color: #FF8000;
+}
+
+.supercar_btn:hover .supercar-text {
+    font-weight: 800;
+}
+
+.supercar_btn:hover .supercar_arrow_box {
+    background: #FF8000;
+
+    clip-path: polygon(
+        34.48% 0,
+        100% 0,
+        70.43% 100%,
+        0 100%
+    );
+}
+.supercar_btn:hover .supercar_arrow_box svg{
+    transform: translateX(-5px);
+}
 .slide2_button{
     padding-right: 60px;
 }
@@ -478,7 +690,7 @@ text-transform: uppercase;
     position: fixed;
     /* width: 100vw; */
     width: 100%;
-    height: 50vh;
+    height: 65vh;
     top: 100px;
     left: 0;
     background-color: #000;
@@ -1189,14 +1401,21 @@ line-height: 24px;
    justify-content: space-between;
 background: rgba(0, 0, 0, 0.30);
 }
-.expander_overlay-svg{
+/* .expander_overlay-svg{
    position: relative;
-  /* height: 50px;  */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+
   width: 165px;
   gap: 5px;
+} */
+ .expander_overlay-svg{
+   position: relative;
+  display: flex;
+  flex-direction: column;
+
+
+  gap: 0px;
 }
 /* .expander_overlay-svg svg{
   
@@ -1347,6 +1566,9 @@ h6,h3{
     transform: skew(-15deg);
     align-items: center;
 }
+.icon-squre-img svg{
+    transform: skew(15deg);
+}
 .icon-squre-content{
    align-items:flex-start;
    width: 100%;
@@ -1386,15 +1608,16 @@ letter-spacing: 1.2px;
     margin-left: -10px;
 }
 
-.expander_overlay-svg1{
-    
-}
+
 .car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car_expander_bottom{
   opacity: 0;
+  display: none;
 }
 .car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .car-line{
  display: flex;
+ margin-bottom: 20px;
 }
+
 .car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .non-hover-text{
  display: flex;
 }
@@ -1412,11 +1635,16 @@ width: 111px;
 height: 30px;
 aspect-ratio: 37/10;
 }
+.expander_overlay-svg .logo-default,
+.expander_overlay-svg .logo-hover{
+   margin-bottom: 20px; /* replaces the old gap for the normal state */
+}
 .car-line{
 width: 1px;
 height: 484px;
 background-color: #FFF;
 display: none;
+
 }
 .non-hover-text{
  display: none;
@@ -1425,10 +1653,12 @@ display: none;
   align-items: center;
   justify-content: center;
   transform: rotate(-90deg);
+  padding-bottom: 10px;
+   margin-top: 12px;
 }
 .non-hover-text h6{
 font-family: "Darker Grotesque";
-font-size: 20px;
+font-size: 30px;
 font-style: normal;
 font-weight: 500;
 
@@ -1506,7 +1736,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 140%;
 white-space: nowrap;
-color: #C9C9C9;
+
 }
 
 
@@ -1741,6 +1971,7 @@ padding-top: 10px;
 .cta-fade-stripe-3{
     background: rgba(255,255,255,0.85);
     transition-delay: 0.12s;
+     margin-right: -6px; 
 }
 
 .supercar_card:hover .cta-fade-stripe{
@@ -1751,7 +1982,8 @@ padding-top: 10px;
     width: 70px;
     height: 100%;
     background: #FFF;
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    /* clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); */
+     clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2786,12 +3018,7 @@ line-height: 22px;
     height: 40px;
     border: 1px solid gray;
 }
-.footer_up_btn:hover .footer_btnn {
-    background-color: white;
-}
-.footer_up_btn:hover .footer_btnn svg path{
-    stroke: #000;
-}
+
 
 .time-display-wrapper{
     position: relative;
@@ -4012,8 +4239,6 @@ letter-spacing: 1.5px;
 }
 
 
-
-
 .backtotop_wrap{
     position: relative;
     width: 40px;
@@ -4059,15 +4284,18 @@ letter-spacing: 1.5px;
     align-items: center;
     justify-content: center;
 }
+
+.footer_btnn svg path{
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* single source of truth for hover state — scoped to the icon wrapper only */
 .backtotop_wrap:hover .footer_btnn{
     transform: translateY(-30px);
     background-color: #FFF;
 }
-.footer_btnn svg path{
-    transition: fill 0.3s ease;
-}
 .backtotop_wrap:hover .footer_btnn svg path,
 .backtotop_wrap:hover .footer_btnn svg rect{
-    stroke: #fff;
     fill: #000;
+    stroke: #fff;
 }
