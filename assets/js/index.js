@@ -1,57 +1,56 @@
-
-    // lives directly in the HTML above. This script only toggles which
-    // slide is visible and replays the text entrance animation — it does
-    // not generate or store any slide content itself.
-
+// lives directly in the HTML above. This script only toggles which
+// slide is visible and replays the text entrance animation — it does
+// not generate or store any slide content itself.
 
 
-    (function initHeroSlider() {
-        const slides = document.querySelectorAll(".top_section .slide");
-        const allDots = document.querySelectorAll(".top_section .top_squre");
 
-        let currentSlide = 0;
-        const SLIDE_DURATION = 4000; // total time each slide stays visible
+(function initHeroSlider() {
+    const slides = document.querySelectorAll(".top_section .slide");
+    const allDots = document.querySelectorAll(".top_section .top_squre");
 
-        function playEntrance(slideEl) {
-            const textEls = slideEl.querySelectorAll(".hero_text_el");
-            textEls.forEach((el) => el.classList.remove("in"));
-            void slideEl.offsetWidth; // force reflow so the transition replays
-            textEls.forEach((el) => el.classList.add("in"));
-        }
+    let currentSlide = 0;
+    const SLIDE_DURATION = 4000; // total time each slide stays visible
 
-        function showSlide(index) {
-            slides.forEach((slideEl, i) => {
-                slideEl.classList.toggle("active", i === index);
-            });
-            allDots.forEach((dot) => {
-                dot.classList.toggle("active", parseInt(dot.getAttribute("data-slide"), 10) === index);
-            });
-            playEntrance(slides[index]);
-            currentSlide = index;
-        }
+    function playEntrance(slideEl) {
+        const textEls = slideEl.querySelectorAll(".hero_text_el");
+        textEls.forEach((el) => el.classList.remove("in"));
+        void slideEl.offsetWidth; // force reflow so the transition replays
+        textEls.forEach((el) => el.classList.add("in"));
+    }
 
-        function nextSlide() {
-            showSlide((currentSlide + 1) % slides.length);
-        }
-
-        // allow clicking any dot (in any slide) to jump straight to that slide
-        allDots.forEach((dot) => {
-            dot.addEventListener("click", () => {
-                showSlide(parseInt(dot.getAttribute("data-slide"), 10));
-                resetTimer();
-            });
+    function showSlide(index) {
+        slides.forEach((slideEl, i) => {
+            slideEl.classList.toggle("active", i === index);
         });
+        allDots.forEach((dot) => {
+            dot.classList.toggle("active", parseInt(dot.getAttribute("data-slide"), 10) === index);
+        });
+        playEntrance(slides[index]);
+        currentSlide = index;
+    }
 
-        // play the entrance animation for the first slide on load
-        playEntrance(slides[currentSlide]);
+    function nextSlide() {
+        showSlide((currentSlide + 1) % slides.length);
+    }
 
-        let timer = setInterval(nextSlide, SLIDE_DURATION);
+    // allow clicking any dot (in any slide) to jump straight to that slide
+    allDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+            showSlide(parseInt(dot.getAttribute("data-slide"), 10));
+            resetTimer();
+        });
+    });
 
-        function resetTimer() {
-            clearInterval(timer);
-            timer = setInterval(nextSlide, SLIDE_DURATION);
-        }
-    })();
+    // play the entrance animation for the first slide on load
+    playEntrance(slides[currentSlide]);
+
+    let timer = setInterval(nextSlide, SLIDE_DURATION);
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, SLIDE_DURATION);
+    }
+})();
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -337,6 +336,15 @@ document.addEventListener('DOMContentLoaded', function () {
         return !isInvalid;
     }
 
+    function validateConsent() {
+        const el = document.getElementById('consent');
+        if (!el) return true;
+        const group = el.closest('.consent');
+        const isInvalid = !el.checked;
+        if (group) group.classList.toggle('invalid', isInvalid);
+        return !isInvalid;
+    }
+
     function validateForm() {
         const results = [
             validateSelect('category'),
@@ -348,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validateRequiredText('name'),
             validatePhone(),
             validateEmail(),
+            validateConsent(),
         ];
         return results.every(Boolean);
     }
@@ -357,15 +366,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const isValid = validateForm();
 
         if (!isValid) {
-            const firstInvalid = document.querySelector('.form-group.invalid');
+            const firstInvalid = document.querySelector('.form-group.invalid, .consent.invalid');
             if (firstInvalid) {
                 firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
             return;
         }
 
-        // TODO: hook up real submission here
-        console.log('Form is valid — ready to submit');
+        // All data correct — refresh the page
+        window.location.reload();
     });
 
     // clear the red state as soon as the person fixes a field
@@ -381,6 +390,17 @@ document.addEventListener('DOMContentLoaded', function () {
             setInvalid(group, false);
         });
     });
+
+    // clear consent invalid state as soon as it's checked
+    const consentEl = document.getElementById('consent');
+    if (consentEl) {
+        consentEl.addEventListener('change', function () {
+            if (consentEl.checked) {
+                const group = consentEl.closest('.consent');
+                if (group) group.classList.remove('invalid');
+            }
+        });
+    }
 });
 
 
@@ -449,4 +469,59 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     render();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const loopForm = document.getElementById('loopForm');
+  if (!loopForm) return;
+
+  const nameGroup = document.getElementById('loopNameGroup');
+  const emailGroup = document.getElementById('loopEmailGroup');
+  const nameInput = document.getElementById('loopName');
+  const emailInput = document.getElementById('loopEmail');
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  }
+
+  function validateName() {
+    const valid = nameInput.value.trim().length > 0;
+    nameGroup.classList.toggle('invalid', !valid);
+    return valid;
+  }
+
+  function validateEmail() {
+    const valid = isValidEmail(emailInput.value);
+    emailGroup.classList.toggle('invalid', !valid);
+    return valid;
+  }
+
+  // live validation once the user has interacted
+  nameInput.addEventListener('blur', validateName);
+  emailInput.addEventListener('blur', validateEmail);
+  nameInput.addEventListener('input', () => { if (nameGroup.classList.contains('invalid')) validateName(); });
+  emailInput.addEventListener('input', () => { if (emailGroup.classList.contains('invalid')) validateEmail(); });
+
+  loopForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nameOk = validateName();
+    const emailOk = validateEmail();
+
+    if (!nameOk || !emailOk) {
+      const firstInvalid = !nameOk ? nameInput : emailInput;
+      firstInvalid.focus();
+      return;
+    }
+
+    // All good — replace this with your actual submit logic (fetch/AJAX etc.)
+    console.log('Signup submitted:', {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim()
+    });
+
+    loopForm.reset();
+    nameGroup.classList.remove('invalid');
+    emailGroup.classList.remove('invalid');
+  });
 });

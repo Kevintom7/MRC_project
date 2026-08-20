@@ -12,8 +12,10 @@
 }
 html{
     scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE/Edge */
+    -ms-overflow-style: none; 
+      scroll-behavior: smooth;   /* IE/Edge */
 }
+
 html::-webkit-scrollbar{
     display: none;               /* Chrome/Safari/Edge Chromium */
 }
@@ -202,6 +204,7 @@ line-height: normal;
     /* Don't use border or clip-path on the actual button */
     border: none;
     overflow: hidden;
+    cursor: pointer;
 }
 
 
@@ -461,6 +464,7 @@ line-height: normal;
     overflow: hidden;
 
     background: transparent;
+    cursor: pointer;
 }
 
 
@@ -1290,6 +1294,7 @@ font-family: "IvyOra Display";
     display: flex;
     flex-direction: column;
     gap: 30px;
+    gap: 32px;
 }
 .premimum_right_content h4{
 font-size: 22px;
@@ -1308,6 +1313,7 @@ color: #fff;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    gap: 28px;
 }
 .premimum_right_content_head h3{
 color: #FF8000;
@@ -1320,6 +1326,8 @@ line-height: 24px;
     display: flex;
     gap: 10px;
     align-items: center;
+    width: fit-content;
+    cursor: pointer;
 
 }
 .premimum_right_content_button svg{
@@ -1517,13 +1525,17 @@ h6,h3{
      }
   .cta-arrow-btn .cta-stripe-3{ background: rgba(255,255,255,0.85);
      transition-delay: 0.12s;
+     margin-right: -7px;
      }
 
   .cta-arrow-btn:hover .cta-stripe{
     opacity: 1;
    
   }
-
+.mega-arrow-left,
+.mega-arrow-right {
+    cursor: pointer;
+}
   .cta-arrow-btn .cta-arrow-box{
     width: 70px;
     height: 100%;
@@ -1664,6 +1676,9 @@ font-weight: 500;
 
 white-space: nowrap;
 }
+.proche_text h6{
+    font-size: 28px;
+}
 /* .car_expander_bottom h6{
     display: none;
 } */
@@ -1672,6 +1687,7 @@ white-space: nowrap;
 
 .supercar_wrapper{
     padding-top: 100px;
+    padding-top: 105px;
     text-align: center;
 }
 
@@ -1848,8 +1864,12 @@ padding-top: 10px;
     gap: 12px;
     align-items: center;
     cursor: pointer;
+    padding-bottom: 2px;
 }
-
+.service-main-card:hover .service-main-content h6{
+    transform: scale(.83);
+}
+ 
 .supercard_view_btn svg{
     opacity: 0;
     visibility: hidden;
@@ -1878,9 +1898,9 @@ padding-top: 10px;
     opacity: 1;
 }
 
-.supercar_card:hover .supercar_card_name{
+/* .supercar_card:hover .supercar_card_name{
     color: #FF8000;
-}
+} */
 
 .card-ret-left1{
     width: 100%;
@@ -1890,7 +1910,7 @@ padding-top: 10px;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 15;
     clip-path: polygon(0 0, 100% 0, 69.62% 100%, 0 100%);
     pointer-events: none; 
      transition: transform 0.5s ease, opacity 0.5s ease;
@@ -1905,7 +1925,7 @@ padding-top: 10px;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 100;
+    z-index: 15;
     clip-path: polygon(31.3% 0, 100% 0, 100% 100%, 0 100%);
     pointer-events: none;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -2005,7 +2025,7 @@ padding-top: 10px;
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 102;
+    z-index: 16 ;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -2697,18 +2717,33 @@ border: 1px solid #FF8000;
     align-items: center;
     gap: 14px;
 }
+.checkbox-main{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
+
 .form-footer .consent input[type="checkbox"]{
     appearance: none;
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
     min-width: 20px;
-    background: #E36A2B;
+    background: #FFF;
     border: none;
     cursor: pointer;
     position: relative;
 }
-.form-footer .consent input[type="checkbox"]:checked::after{
+.form-footer .consent input[type="checkbox"]:checked{
+    background: #FF8000;
+}
+.consent.invalid .checkbox-main{
+    border-color: #FF3B30;
+}
+/* .form-footer .consent input[type="checkbox"]:checked::after{
     content: "";
     position: absolute;
     left: 6px;
@@ -2718,12 +2753,13 @@ border: 1px solid #FF8000;
     border: solid #000;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
-}
+} */
 .form-footer .consent label{
     font-family: "Darker Grotesque", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    color: #C9C9C9;
+ font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
     margin: 0;
 }
 .form-footer .consent label a{
@@ -2814,6 +2850,7 @@ line-height: 14px;
     display: flex;
     padding-bottom: 100px;
     flex-wrap: wrap; 
+    gap: 20pxx;
 }
 .footer_content{
     /* display: grid;
@@ -3111,12 +3148,26 @@ line-height: 22px;
     }
 .service-main-card{
     position: relative;
+       transition: filter 0.3s ease, background-color 0.3s ease;
 }
+.service-main-card {
+    transition: filter 0.3s ease, background-color 0.3s ease;
+}
+
+.service-main-card:hover {
+    background: var(--MRC-Black, #000);
+    filter: drop-shadow(0 0 30px rgba(255, 128, 0, 0.40));
+}
+
+.service-main-content svg{
+    transition: transform 0.35s ease;
+}
+
 
 .service-card-arrow {
     position: absolute;
     right: 24px;
-    bottom: 20px;
+    bottom: 0px;
 
     opacity: 0;
     transform: skew(19deg) translateY(10px);
@@ -3129,11 +3180,30 @@ line-height: 22px;
 
 .service-main-card:hover .service-card-arrow {
     opacity: 1;
-    transform: skew(19deg) translateY(0);
+    transform: skew(19deg) translateY(-20px);
 }
-
-
-
+.loop_data1{
+    position: relative;
+}
+.loop_data1 .loop-error-message{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    color: #FF3B30;
+}
+.loop_data1.invalid input{
+    border-bottom-color: #FF3B30;
+}
+.loop_data1.invalid h6{
+    color: #FF3B30;
+}
+.loop_data1.invalid .loop-error-message{
+    display: block;
+}
 
 @media (max-width: 1500px) {
 .filter_class{
@@ -3203,6 +3273,10 @@ line-height: 22px;
 
 .service-car-slide{
     margin-left: 0;
+}
+
+.icon-squre{
+    width: 70px;
 }
 }
 
@@ -3628,6 +3702,7 @@ aspect-ratio: 11/3;
         order: 1;
         width: 100%;
         max-width: none;
+        max-width: 348px;
     }
  
 }
@@ -4069,7 +4144,27 @@ letter-spacing: 1.5px;
 .booking-form,.from-title{
     padding-left: 20px;
     padding-right: 20px;}
-   
+
+    .expander-car-name{
+        gap:30px
+    }
+
+
+
+.cta-arrow-btn{
+    display: none;
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:hover .cta-arrow-btn{
+    display: flex;
+}
+.car_expander:has(.car_expander-img:hover) .car_expander-img:not(:hover) .cta-arrow-btn{
+    display: none;
+}
+
+.form-footer .consent label {
+ font-size: 18px
+}
+
 }
 
 
@@ -4103,7 +4198,16 @@ letter-spacing: 1.5px;
 
 /* Smaller hover scale so the skewed glow box stays inside its own card */
 .megamenu .service-main-card:hover{
-    transform: skew(-19deg) scale(1.05);
+    background: var(--MRC-Black, #000);
+    filter: drop-shadow(0 0 20px rgba(255, 128, 0, 0.35));
+}
+
+.megamenu .service-main-content svg{
+    transition: transform 0.35s ease;
+}
+
+.megamenu .service-main-card:hover .service-main-content svg{
+    transform: scale(1.15);
 }
 
 @media (max-width: 1200px){
