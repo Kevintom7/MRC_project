@@ -1536,6 +1536,12 @@ h6,h3{
 .mega-arrow-right {
     cursor: pointer;
 }
+.mega-arrow-right:hover path {
+    fill: orange;
+}
+.mega-arrow-left:hover path {
+    fill: orange;
+}
   .cta-arrow-btn .cta-arrow-box{
     width: 70px;
     height: 100%;
@@ -2874,6 +2880,9 @@ line-height: 14px;
     gap: 10px;
      width: 404px;
 }
+.footer-img-hide{
+    display: none;
+}
 .footer_Vehicles h6{
     font-family: "Darker Grotesque";
 font-size: 22px;
@@ -2898,6 +2907,11 @@ line-height: 28px
 }
 .footer_Luxury{
 color: #999;
+}
+.footer-main-btn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 .footer_service{
     display: flex;
@@ -3204,12 +3218,52 @@ line-height: 22px;
 .loop_data1.invalid .loop-error-message{
     display: block;
 }
+.mobile_top_btn{
+    display: none;
+}
+.filter_accordion{
+    display: none;
+}
 
-@media (max-width: 1500px) {
-.filter_class{
-    overflow-x: auto;
+
+
+@media (max-width: 1600px){
+    .megamenu .service_items{
+        gap: clamp(10px, 2vw, 40px);
+    }
+    .megamenu .service-main-card{
+        height: clamp(130px, 13vw, 200px);
+        transform: skew(-14deg);
+    }
+    .megamenu .service-main-content{
+        transform: skew(14deg);
+    }
+    .megamenu .service-main-content svg{
+        width: clamp(36px, 4vw, 60px);
+    }
+    .megamenu .service-main-content h6{
+        font-size: clamp(13px, 1.1vw, 18px);
+    }
+    .service_items{
+        gap: clamp(10px, 2vw, 40px);
+        justify-content: center;
+    }
+    .service-main-card{
+        height: clamp(130px, 13vw, 200px);
+        max-width: 250px;
+        transform: skew(-14deg);
+    }
+    .service-main-content{
+        transform: skew(14deg);
+    }
+    .service-main-content svg{
+        width: clamp(50px, 5vw, 70px);
+    }
+    .service-main-content h6{
+        font-size: clamp(14px, 1.3vw, 20px);
+    }
 }
-}
+
 @media (max-width: 1400px) {
 
 .navbar{
@@ -3235,6 +3289,35 @@ line-height: 22px;
 .business_right img {
     width: 500px;
 }
+
+
+
+ .form-content{
+        padding-right: 0px;
+        flex-direction: column;
+        align-items: stretch;      /* let children stretch to full row width */
+    }
+
+    .form-img{
+        width: 100%;
+        max-width: 100%;           /* override the 40vw cap from base styles */
+        flex: none;                /* remove flex-basis/grow/shrink from row layout */
+    }
+
+    .form-img img{
+        width: 100%;
+        max-width: none;           /* override the 826px cap so it fills the section */
+        height: auto;
+        display: block;
+    }
+
+    .form-data{
+        max-width: 100%;
+        width: 100%;
+        flex: none;
+        padding-left:60px;
+        padding-right: 60px;
+    }
 
 }
 @media (max-width: 1200px) {
@@ -3278,6 +3361,9 @@ line-height: 22px;
 .icon-squre{
     width: 70px;
 }
+ .service-main-card{
+    max-width: 200px;
+ }
 }
 
 @media (max-width:1024px){
@@ -3310,8 +3396,9 @@ line-height: 22px;
   }
 /*.car_expander */
 .car_expander{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
+
 .car_expander-img-hide{
     display: none;
 }
@@ -3346,7 +3433,7 @@ line-height: 22px;
         width: 260px;
     } 
  .supercar_btn:hover {
-    border: 1px solid #FF8000;
+  background: linear-gradient(to right, #000 0%, #000 95%, transparent 80%, transparent 100%);
     border-right: none;
     clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);
 }
@@ -3383,6 +3470,151 @@ line-height: 22px;
     .line_break{
         display: none;
     }
+
+
+        /* Stay In The Loop */
+    .loop_data{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .loop_data1{
+        width: 100%;
+        max-width: 100%;
+    }
+    .loop_btn{
+        max-width: 260px;
+    }
+
+    /* Footer */
+    .footer_main{
+        flex-direction: column;
+        gap: 50px;
+        padding-bottom: 60px;
+    }
+    .footer_content{
+        flex-wrap: wrap;
+        gap: 40px;
+        width: 100%;
+    }
+    .footer_home,
+    .footer_Vehicles,
+    .footer_service{
+        width: calc(50% - 20px);
+        max-width: none;
+    }
+    .footer-img{
+        max-width: 400px;
+    }
+
+
+      .filter_class{
+        display: none;
+    }
+
+    .filter_accordion{
+        display: block;
+        padding: 40px 0 0;
+        position: relative;
+    }
+
+  .filter_accordion_toggle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FF8000;
+    padding: 18px 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
+}
+   
+
+    .filter_accordion_toggle.open{
+        background-color: #1A1A1A;
+    }
+
+    .filter_accordion_label{
+        font-family: "Darker Grotesque";
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #000;
+        text-align: left;
+    }
+
+    .filter_accordion_toggle.open .filter_accordion_label{
+        color: #FFF;
+    }
+
+    .filter_accordion_icon{
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-close{
+        display: none;
+    }
+
+    .filter_accordion_toggle.open .icon-plus{
+        display: none;
+    }
+
+    .filter_accordion_toggle.open .icon-close{
+        display: block;
+    }
+
+    .filter_accordion_list{
+        position: static;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        transform-origin: top;
+        max-height: 0;
+        overflow: hidden;
+        background-color: #000;
+        transition: max-height 0.35s ease;
+    }
+
+    .filter_accordion_list.open{
+        max-height: 500px;
+    }
+
+    .filter_accordion_item{
+        padding: 16px 20px;
+        font-family: "Darker Grotesque";
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #FFF;
+        text-align: left;
+        cursor: pointer;
+        border-top: 1px solid #333;
+    }
+
+    .filter_accordion_item:hover,
+    .filter_accordion_item.active{
+        background-color: #FF8000;
+        color: #000;
+    }
+
+    .filter_section{
+        padding-top: 50px;
+          grid-template-columns: 1fr;
+    }
+.supercard-head {
+    justify-content: space-between;
+}
 }
 
 @media (max-width:767px){
@@ -3419,10 +3651,7 @@ line-height: 22px;
   .premimum_wrapper{
     padding-top: 70px;
     gap: 40px;
-  }
-
-
-  
+  } 
 /*service_section*/
  .service_items{
             
@@ -3441,12 +3670,7 @@ line-height: 22px;
         max-width: none;
         padding: 20px;
     }
-
-
-
-
-
-    
+ 
  /*premium_section*/
   .premimum_wrapper{
     padding: 60px 0px;
@@ -3505,156 +3729,53 @@ aspect-ratio: 11/3;
 .car_expander_bottom {
     gap: 10px;
 }
-}
 
-
-
-
-
-
-
-
-/* Accordion hidden on desktop */
-.filter_accordion{
-    display: none;
-}
-@media (max-width: 1024px){
-    .filter_class{
-        display: none;
+   .form_headng{
+        padding-top: 80px;
+        padding-bottom: 50px;
     }
-
-    .filter_accordion{
-        display: block;
-        padding: 40px 0 0;
-        position: relative;
-    }
-
-    .filter_accordion_toggle{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #FF8000;
-        padding: 18px 20px;
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-    }
-
-    .filter_accordion_toggle.open{
-        background-color: #1A1A1A;
-    }
-
-    .filter_accordion_label{
-        font-family: "Darker Grotesque";
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        color: #000;
-        text-align: left;
-    }
-
-    .filter_accordion_toggle.open .filter_accordion_label{
-        color: #FFF;
-    }
-
-    .filter_accordion_icon{
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon-close{
-        display: none;
-    }
-
-    .filter_accordion_toggle.open .icon-plus{
-        display: none;
-    }
-
-    .filter_accordion_toggle.open .icon-close{
-        display: block;
-    }
-
-    .filter_accordion_list{
-        position: static;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        transform: none;
-        transform-origin: top;
-        max-height: 0;
-        overflow: hidden;
-        background-color: #1A1A1A;
-        transition: max-height 0.35s ease;
-    }
-
-    .filter_accordion_list.open{
-        max-height: 500px;
-    }
-
-    .filter_accordion_item{
-        padding: 16px 20px;
-        font-family: "Darker Grotesque";
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        color: #FFF;
-        text-align: left;
-        cursor: pointer;
-        border-top: 1px solid #333;
-    }
-
-    .filter_accordion_item:hover,
-    .filter_accordion_item.active{
-        background-color: #FF8000;
-        color: white;
-    }
-
-    .filter_section{
-        padding-top: 50px;
-          grid-template-columns: 1fr;
-    }
-.supercard-head {
-    justify-content: space-between;
-}
-}
-
-
-
-
-
-
-
-@media (max-width: 1400px){
     .form-content{
-        padding-right: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+        gap: 30px;
+    }
+    .form-row{
+        grid-template-columns: 1fr;   /* date/time stack instead of squeezing side by side */
+    }
+    .form-footer{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    .form-footer .consent{
+        order: 2;
+    }
+    .supercar_btn{
+        order: 1;
+        width: 100%;
+        max-width: none;
+        max-width: 348px;
+    }
+
+
+        .footer_content{
         flex-direction: column;
-        align-items: stretch;      /* let children stretch to full row width */
+        gap: 40px;
     }
-
-    .form-img{
+    .footer_home,
+    .footer_Vehicles,
+    .footer_service{
         width: 100%;
-        max-width: 100%;           /* override the 40vw cap from base styles */
-        flex: none;                /* remove flex-basis/grow/shrink from row layout */
     }
-
-    .form-img img{
-        width: 100%;
-        max-width: none;           /* override the 826px cap so it fills the section */
-        height: auto;
-        display: block;
+    .footer_copy_wrapper{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
-
-    .form-data{
-        max-width: 100%;
-        width: 100%;
-        flex: none;
-        padding-left:60px;
-        padding-right: 60px;
+    .footer_terms{
+        flex-wrap: wrap;
+        row-gap: 8px;
     }
+ 
 }
 
 @media (max-width: 1100px){
@@ -3677,187 +3798,6 @@ aspect-ratio: 11/3;
         padding: 60px 0px;
     }
 }
-
-@media (max-width: 767px){
-    .form_headng{
-        padding-top: 80px;
-        padding-bottom: 50px;
-    }
-    .form-content{
-        padding-right: 20px;
-        padding-left: 20px;
-        gap: 30px;
-    }
-    .form-row{
-        grid-template-columns: 1fr;   /* date/time stack instead of squeezing side by side */
-    }
-    .form-footer{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .form-footer .consent{
-        order: 2;
-    }
-    .supercar_btn{
-        order: 1;
-        width: 100%;
-        max-width: none;
-        max-width: 348px;
-    }
- 
-}
-
-
-
-
-
-
-
-
-
-/* ============ 1024px ============ */
-@media (max-width: 1024px){
-
-    /* Stay In The Loop */
-    .loop_data{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 30px;
-    }
-    .loop_data1{
-        width: 100%;
-        max-width: 100%;
-    }
-    .loop_btn{
-        max-width: 260px;
-    }
-
-    /* Footer */
-    .footer_main{
-        flex-direction: column;
-        gap: 50px;
-        padding-bottom: 60px;
-    }
-    .footer_content{
-        flex-wrap: wrap;
-        gap: 40px;
-        width: 100%;
-    }
-    .footer_home,
-    .footer_Vehicles,
-    .footer_service{
-        width: calc(50% - 20px);
-        max-width: none;
-    }
-    .footer-img{
-        max-width: 400px;
-    }
-}
-
-/* ============ 767px ============ */
-@media (max-width: 767px){
-
-    .footer_content{
-        flex-direction: column;
-        gap: 40px;
-    }
-    .footer_home,
-    .footer_Vehicles,
-    .footer_service{
-        width: 100%;
-    }
-    .footer_copy_wrapper{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    .footer_terms{
-        flex-wrap: wrap;
-        row-gap: 8px;
-    }
-}
-
-/* ============ 567px ============ */
-@media (max-width: 567px){
-
-    /* Stay In The Loop */
-    .loop_wrapper{
-        padding: 40px 0px;
-        gap: 24px;
-    }
-    .loop_wrapper h4{
-        font-size: 26px;
-    }
-    .loop_data{
-        gap: 24px;
-    }
-    .loop_data1 input{
-        height: 36px;
-    }
-    .loop_btn{
-        max-width: 100%;
-    }
-
-    /* Footer */
-    .footer_wrapper{
-        padding-top: 60px;
-        gap: 40px;
-    }
-    .footer_logo svg{
-        width: 160px;
-        height: auto;
-    }
-    .footer_main{
-        gap: 40px;
-        padding-bottom: 50px;
-    }
-    .footer_home h6,
-    .footer_Vehicles h6,
-    .footer_services h6,
-    .footer_contact h6{
-        font-size: 18px;
-        line-height: 24px;
-    }
-    .footer_hire{
-        font-size: 18px;
-    }
-    .footer_address{
-        padding-bottom: 24px;
-    }
-    .footer-img{
-        max-width: 100%;
-    }
-    .footer_copy_wrapper{
-        padding: 24px 0px;
-        gap: 16px;
-    }
-    .footer_terms{
-        flex-direction: column;
-        gap: 8px;
-    }
-    .footer_right h6{
-        margin-top: 4px;
-    }
-    .footer_copy_right{
-        gap: 6px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width:567px){
@@ -4107,10 +4047,11 @@ letter-spacing: 1.5px;
 .progress-content{
     gap: 40px;
 }
-.progress-card{
-    max-width: none;
-    min-height:fit-content;
- }
+ .progress-card{
+        max-width: none;
+        min-height: fit-content;
+        flex: none;
+    }
  .progress_body p{
 font-family: "Darker Grotesque";
 font-size: 18px;
@@ -4148,9 +4089,6 @@ letter-spacing: 1.5px;
     .expander-car-name{
         gap:30px
     }
-
-
-
 .cta-arrow-btn{
     display: none;
 }
@@ -4165,7 +4103,6 @@ letter-spacing: 1.5px;
  font-size: 18px
 }
 
-
 .card-ret-left1,.card-ret-right1{
     display: none;
 }
@@ -4176,6 +4113,116 @@ background-color: #000;
     fill: #FF8000;
     transition: fill 0.3s ease;
 }
+.footer-img-hide{
+    display: block;
+}
+.footer-img-visi{
+    display: none;
+}
+.footer-main-btn{
+    display: none;
+}
+.footer_up_btn{
+    display: none;
+}
+.mobile_top_btn{
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.service-card-arrow{
+    display: none;
+}
+ .service-main-card:hover .service-main-content h6{
+    transform: none;
+  }
+  .premimum_wrapper{
+     padding-top: 0px;
+  }
+  .supercar_section{
+    padding-bottom: 60px;
+  }
+  .service-break{
+    display: none;
+  }
+  .business_content_top {
+    gap:60px
+  }
+  .progress-head{
+    padding: 0px 20px;
+  }
+
+    /* Stay In The Loop */
+    .loop_wrapper{
+        padding: 40px 0px;
+        gap: 24px;
+    }
+    .loop_wrapper h4{
+        font-size: 26px;
+    }
+    .loop_data{
+        gap: 30px;
+    }
+    .loop_data1 input{
+        height: 36px;
+    }
+    .loop_btn{
+        max-width: 100%;
+    }
+
+    /* Footer */
+    .footer_wrapper{
+        padding-top: 60px;
+        gap: 40px;
+    }
+    .footer_logo svg{
+        width: 160px;
+        height: auto;
+    }
+    .footer_main{
+        gap: 40px;
+        padding-bottom: 0px;
+    }
+    .footer_home h6,
+    .footer_Vehicles h6,
+    .footer_services h6,
+    .footer_contact h6{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .footer_hire{
+        font-size: 18px;
+    }
+    .footer_address{
+        padding-bottom: 24px;
+    }
+    .footer-img{
+        max-width: 100%;
+    }
+    .footer_copy_wrapper{
+        padding: 24px 0px;
+        gap: 16px;
+    }
+    .footer_terms{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .footer_right h6{
+        margin-top: 4px;
+    }
+    .footer_copy_right{
+        gap: 6px;
+    }
+    .head_logo svg {
+        height: 40px;
+    }
+}
+
+
+
+
+
 
 /* Responsive cards inside the "OUR SERVICES" mega menu */
 .megamenu .service_items{
@@ -4265,6 +4312,19 @@ background-color: #000;
     }
     .footer-img{
         margin-top: 0;
+    }
+    .from-title h4 {
+        font-size: 26px;
+    }
+    .from-title {
+        gap: 20px;
+        padding-bottom: 40px;
+    }
+    .form-group label{
+        font-size: 12px;
+    }
+    .form-group{
+        margin-bottom: 30px;
     }
 }
 
@@ -4411,4 +4471,71 @@ background-color: #000;
 .backtotop_wrap:hover .footer_btnn svg rect{
     fill: #000;
     stroke: #fff;
+}
+
+
+@media (max-width: 1500px) {
+.filter_class{
+    overflow-x: auto;
+}
+}
+
+
+@media (max-width:1024px){
+
+    /* Grid ratio: item-1 dominant by default */
+    .car_expander{
+        grid-template-columns: 3fr 1fr;
+    }
+
+    /* Item-1 (Range Rover) — locked into "hover" look permanently */
+    .item-1 .logo-default{
+       
+         display: flex;
+        opacity: 1;
+    }
+    .item-1 .logo-hover{
+       display: none;
+    }
+    .item-1 img{
+        transform: scale(1.05);
+    }
+    .item-1 .icon-set-expander{
+        display: none;
+    }
+
+    /* Item-2 (McLaren) — default = squeezed/reduced look, no bottom text */
+    .item-2 .car_expander_bottom{
+        display: none;
+    }
+    .item-2 .expander_overlay-svg svg{
+        width: 39px;
+        height: 50px;
+    }
+    .item-2 .expander_overlay-svg{
+        align-items: center;
+    }
+
+    /* Item-2 on real hover — restore full/expanded look like item-1 */
+    .item-2:hover .car_expander_bottom{
+        display: flex;
+    }
+    .item-2:hover .expander_overlay-svg svg{
+        width: auto;
+        height: 45px;
+    }
+    .item-2:hover .expander_overlay-svg{
+        align-items: flex-start;
+    }
+   
+    .item-2:hover img{
+        transform: scale(1.05);
+    }
+    .item-2:hover .icon-set-expander{
+        display: flex;
+        align-items: center;
+    }
+
+    /* When item-2 is hovered, item-1 should return to plain state
+       (optional — remove if you want item-1 to always stay "hovered") */
 }
