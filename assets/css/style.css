@@ -4165,8 +4165,17 @@ letter-spacing: 1.5px;
  font-size: 18px
 }
 
-}
 
+.card-ret-left1,.card-ret-right1{
+    display: none;
+}
+.cta-fade-box{
+background-color: #000;
+}
+.cta-fade-box svg path{
+    fill: #FF8000;
+    transition: fill 0.3s ease;
+}
 
 /* Responsive cards inside the "OUR SERVICES" mega menu */
 .megamenu .service_items{
